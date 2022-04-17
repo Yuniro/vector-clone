@@ -1,0 +1,68 @@
+.header {
+  padding: 10px;
+  background: linear-gradient(
+      90deg,
+      rgba(104, 105, 231, 0.2),
+      rgba(104, 105, 231, 0) 25%
+    ),
+    #1a1a36;
+
+  &__desktop {
+    min-height: 4rem;
+    padding: 0;
+  }
+
+  &__toolbar {
+    min-height: auto;
+    padding: 0;
+
+    &__desktop {
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+.logo {
+  gap: 5px;
+
+  &__text {
+    &__desktop svg {
+      width: 100px;
+    }
+  }
+}
+
+.buttonConnect {
+  min-height: 40px;
+  background-color: #24244a !important;
+  padding: 10px 15px;
+  box-shadow: none;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  &__mobile {
+    min-width: auto;
+  }
+}
+
+.navMore {
+  padding: 0;
+
+  &__button {
+    padding: 10px 15px;
+    text-transform: capitalize;
+    color: #c7c7e1;
+  }
+
+  &__link {
+    a {
+      color: #c7c7e1;
+      text-decoration: none;
+      padding: 14px 0;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+}

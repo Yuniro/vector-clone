@@ -1,0 +1,101 @@
+.dashboard {
+  &Stat {
+    &:before {
+      display: none;
+    }
+
+    &:global.Mui-expanded {
+      margin: 0;
+    }
+
+    &Summary {
+      margin: 0;
+      min-height: 36px;
+      background-color: #16162c;
+
+      :global .MuiAccordionSummary-content {
+        margin: 5px 0;
+      }
+
+      &:global.Mui-expanded {
+        min-height: 36px;
+      }
+
+      &Title {
+        svg {
+          width: 12px;
+          height: 12px;
+          color: #6869e7;
+          margin-right: 10px;
+        }
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .MuiAccordionDetails-root {
+      background-color: #24244a;
+    }
+
+    &Details:global.MuiAccordionDetails-root {
+      padding: 0;
+      background-color: #24244a;
+    }
+
+    &Card {
+      background-color: #16162c;
+      background-image: none;
+    }
+
+    &Content {
+      $content: &;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+
+      &__Desktop {
+        flex-direction: row;
+
+        #{ $content }Item {
+          flex-direction: column;
+          padding: 15px;
+          border-right: 1px solid #24244a;
+
+          &Value {
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+      }
+
+      &Item {
+        display: flex;
+        align-items: flex-start;
+        padding: 5px 10px;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        flex: 1 1;
+        &Title {
+          margin: 3px 0;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 13px;
+          color: #c7c7e1;
+        }
+
+        &Value {
+          white-space: nowrap;
+          margin: 3px 0;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}

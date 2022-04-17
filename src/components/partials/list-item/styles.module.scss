@@ -1,0 +1,32 @@
+.listItem {
+  padding: 0;
+}
+
+.link {
+  display: flex;
+  padding: 15px 20px;
+  
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #c7c7e1;
+
+  &__desktop {
+    padding: 24px 15px;
+  }
+
+  &--active {
+    color: #fff;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      background: #6869e7;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+    }
+  }
+}

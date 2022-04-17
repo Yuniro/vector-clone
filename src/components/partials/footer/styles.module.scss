@@ -1,0 +1,21 @@
+@use "../../../styles/index.scss" as main;
+
+.footer {
+  z-index: 4;
+  background-color: main.$var-clr-primary-darker;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: stretch;
+  justify-content: center;
+
+  ul {
+    li {
+      width: 25%;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+}
