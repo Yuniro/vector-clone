@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react";
 import { StyledEngineProvider } from "@mui/material/styles";
 import UserInfoCard from "../../components/partials/user/info-card";
-import PageSection from "../../components/partials/page/section";
+import PageSection, {
+  SectionHeader,
+} from "../../components/partials/page/section";
 import PageTitle from "../../components/partials/page/title";
 import ProtocolStats from "../../components/partials/protocol-stats";
 import styles from "./styles.module.scss";
@@ -16,10 +18,11 @@ const Stake: FunctionComponent<Props> = () => {
         <PageTitle>Stake Funds</PageTitle>
 
         <PageSection>
-          <>
-            <UserInfoCard />
-            <ProtocolStats />
-          </>
+          <UserInfoCard />
+          <ProtocolStats />
+        </PageSection>
+        <PageSection>
+          <SectionHeader>Main pools</SectionHeader>
         </PageSection>
       </StyledEngineProvider>
     </div>
