@@ -1,11 +1,13 @@
+@use "../../../styles/index.scss" as main;
+
 .header {
   padding: 10px;
   background: linear-gradient(
       90deg,
-      rgba(104, 105, 231, 0.2),
+      main.$var-clr-purple-2,
       rgba(104, 105, 231, 0) 25%
     ),
-    #1a1a36;
+    main.$var-clr-primary-darker;
 
   &__desktop {
     min-height: 4rem;
@@ -34,7 +36,7 @@
 
 .buttonConnect {
   min-height: 40px;
-  background-color: #24244a !important;
+  background-color: main.$var-clr-primary !important;
   padding: 10px 15px;
   box-shadow: none;
   &:hover {
@@ -52,12 +54,12 @@
   &__button {
     padding: 10px 15px;
     text-transform: capitalize;
-    color: #c7c7e1;
+    color: main.$var-clr-text-secondary;
   }
 
   &__link {
     a {
-      color: #c7c7e1;
+      color: main.$var-clr-text-secondary;
       text-decoration: none;
       padding: 14px 0;
       font-size: 14px;
