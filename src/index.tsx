@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./common/theme";
+import { Web3ContextProvider } from './common/hooks';
 import { AppRoutes } from "./routes";
 import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <AppRoutes />
-    </ThemeProvider>
+    <Web3ContextProvider>
+      <ThemeProvider theme={theme}>
+        <AppRoutes />
+      </ThemeProvider>
+    </Web3ContextProvider>
   </React.StrictMode>
 );
 
