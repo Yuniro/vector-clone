@@ -8,7 +8,6 @@ import App from "../app";
 
 const { PUBLIC_URL } = process.env;
 
-
 const AppRoutes: FC = () => {
   return (
     <BrowserRouter basename={PUBLIC_URL}>

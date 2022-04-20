@@ -5,7 +5,7 @@ import { Box, Button, SvgIcon, Typography, Popper, Paper, Divider, Link, Slide }
 import { ReactComponent as ArrowUpIcon } from '../../../assets/icons/arrow-up.svg';
 import { ReactComponent as CaretDownIcon } from '../../../assets/icons/caret-down.svg';
 import { ReactComponent as ConnectWalletIcon } from '../../../assets/icons/connect-wallet.svg';
-import { useWeb3Context, useAddress } from '../../../common/hooks';
+import { useWeb3Context } from '../../../common/hooks';
 import useResponsive from "../../../common/hooks/useResponsive";
 import styles from "./styles.module.scss";
 
@@ -15,14 +15,6 @@ function ConnectMenu() {
   const [isConnected, setConnected] = useState(connected);
   const [isHovering, setIsHovering] = useState(false);
   const isDesktop = useResponsive();
-  const address = useAddress();
-
-  const beautifyAddress = (address: String) => {
-    let data;
-    let length = address.length;
-    data = address.slice(0, 4) + '...' + address.slice(length - 5, length - 1);
-    return data;
-  };
 
   const pendingTransactions: any = [];
   // const pendingTransactions = useSelector((state) => {
@@ -38,8 +30,7 @@ function ConnectMenu() {
   };
 
   if (isConnected) {
-    // buttonText = 'Disconnect';
-    buttonText = beautifyAddress(address);
+    buttonText = 'Walet';
     clickFunc = disconnect;
   }
 
@@ -52,9 +43,6 @@ function ConnectMenu() {
   const id = open ? 'ohm-popper-pending' : undefined;
 
   const primaryColor = '#31CB9E';
-  const buttonStyles =
-    'pending-txn-container' + (isHovering && pendingTransactions.length > 0 ? ' hovered-button' : '');
-
   const getEtherscanUrl = (txnHash: string) => {
     return chainID === 4 ? 'https://rinkeby.etherscan.io/tx/' + txnHash : 'https://polygonscan.com/tx/' + txnHash;
   };
@@ -79,7 +67,7 @@ function ConnectMenu() {
           "text-white"
         )}
         onClick={clickFunc}
-        startIcon={isConnected ? null : <ConnectWalletIcon className="fill-current" />}
+        startIcon={<ConnectWalletIcon className="fill-current" />}
       >
         <p>{buttonText}</p>
         {pendingTransactions.length > 0 && (

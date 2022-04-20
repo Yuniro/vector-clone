@@ -1,16 +1,14 @@
 import React, { FunctionComponent } from "react";
-import { StyledEngineProvider } from "@mui/material/styles";
 import UserInfoCard from "../../components/partials/user/info-card";
 import PageSection, {
   SectionHeader,
 } from "../../components/partials/page/section";
-import PageTitle from "../../components/partials/page/title";
-import ModelPool from "../../common/models/pool";
+import PageWrapper from "../../components/partials/page/wrapper";
+import { ModelPool } from "../../common/models";
 import ProtocolStats from "../../components/partials/protocol-stats";
 import PoolCard from "../../components/partials/pool";
 import styles from "./styles.module.scss";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {}
 
 const Stake: FunctionComponent<Props> = () => {
@@ -38,10 +36,8 @@ const Stake: FunctionComponent<Props> = () => {
   ];
 
   return (
-    <div className="w-full">
-      <StyledEngineProvider injectFirst>
-        <PageTitle>Stake Funds</PageTitle>
-
+    <PageWrapper title="Stake Funds">
+      <>
         <PageSection>
           <UserInfoCard />
           <ProtocolStats />
@@ -54,8 +50,8 @@ const Stake: FunctionComponent<Props> = () => {
             ))}
           </>
         </PageSection>
-      </StyledEngineProvider>
-    </div>
+      </>
+    </PageWrapper>
   );
 };
 

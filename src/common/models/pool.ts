@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-type ModelPool = {
+export type ModelPool = {
   name: string;
   description?: string;
   icon?: string;
@@ -9,5 +8,3 @@ type ModelPool = {
   tvlValue: string;
   claimable: string;
 };
-
-export default ModelPool;

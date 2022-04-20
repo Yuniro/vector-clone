@@ -63,8 +63,9 @@
         #{ $content }Item {
           flex-direction: column;
           padding: 15px;
-          border-right: 1px solid main.$var-clr-primary;
-
+          &:not(:last-child) {
+            border-right: 1px solid main.$var-clr-primary;
+          }
           &Value {
             font-size: 14px;
             line-height: 18px;

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useResponsive from "../../../common/hooks/useResponsive";
-import ModelPool from "../../../common/models/pool";
+import {ModelPool} from "../../../common/models";
 import styles from "./styles.module.scss";
 import Stats from "./stats";
 import Svg from "../Svg";

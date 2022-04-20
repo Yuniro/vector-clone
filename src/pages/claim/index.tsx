@@ -1,11 +1,14 @@
 import { FunctionComponent } from "react";
-import PageTitle from "../../components/partials/page/title";
+import PageWrapper from "../../components/partials/page/wrapper";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {}
 
 const Claim: FunctionComponent<Props> = () => {
-  return <PageTitle>Claim</PageTitle>;
+  return (
+    <PageWrapper title="Claim">
+      <div></div>
+    </PageWrapper>
+  );
 };
 
 export default Claim;
