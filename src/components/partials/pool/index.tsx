@@ -10,10 +10,11 @@ import {
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import useResponsive from "../../../common/hooks/useResponsive";
-import {ModelPool} from "../../../common/models";
+import { ModelPool } from "../../../common/models";
 import styles from "./styles.module.scss";
 import Stats from "./stats";
 import Svg from "../Svg";
+import Tabs from "../tabs";
 import { style } from "@mui/system";
 
 interface Props {
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
+  const [tabIndex, setTabIndex] = React.useState(0);
   return (
     <div className={clsx("mb-2.5")}>
       <Card className={clsx("text-center", styles.card)} elevation={1}>
@@ -52,9 +54,14 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
               <Box className={clsx(styles.card__content__value)}></Box>
             </Box>
           </AccordionSummary>
-          <AccordionDetails
-            className={styles.dashboardStatDetails}
-          ></AccordionDetails>
+          <AccordionDetails className={styles.dashboardStatDetails}>
+            <Tabs
+              tabIndex={tabIndex}
+              tabs={["Stake", "Unstake", "Info"]}
+              variant="fullWidth"
+              setTabIndex={setTabIndex}
+            />
+          </AccordionDetails>
         </Accordion>
       </Card>
     </div>
