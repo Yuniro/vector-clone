@@ -9,6 +9,9 @@
     &:global.Mui-expanded {
       margin: 0;
     }
+    :global .MuiIconButton-edgeEnd {
+      padding: 5px;
+    }
 
     &Summary {
       margin: 0;

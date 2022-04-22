@@ -16,7 +16,7 @@ function App() {
           className={clsx(
             isDesktop
               ? "main-view w-full m-auto mt-20 mb-40 pt-8 max-w-6xl"
-              : "main-view mt-16 pt-1.5 px-4"
+              : "main-view mt-16 pt-1.5"
           )}
         >
           <Outlet />

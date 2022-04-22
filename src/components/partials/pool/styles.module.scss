@@ -1,8 +1,16 @@
 @use "../../../styles/index.scss" as main;
 
+%loc-marginRight {
+  margin-right: 1%;
+}
+
 .card {
   :global .MuiAccordionSummary-content {
     margin: 0;
+  }
+
+  :global .MuiIconButton-edgeEnd {
+    padding: 5px;
   }
 
   &__accord {
@@ -11,7 +19,7 @@
   }
 
   &__summary {
-    padding: 15px;
+    padding: 5px;
 
     &--bg-blue-light {
       background: radial-gradient(
@@ -22,16 +30,64 @@
           repeat scroll 0% 0%,
         transparent none repeat scroll 0% 0%;
     }
+
+    &--bg-purple {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(104, 105, 231, 0.4) 0%,
+            rgba(104, 105, 231, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
   }
 
   &__content {
+    height: 60px;
+
     &__info {
+      width: 80%;
+      @extend %loc-marginRight;
+
+      &Desktop {
+        width: 29%;
+      }
+
       svg {
         height: 40px;
-        margin-right: 25px;
+        margin-right: 15px;
         margin-left: 5px;
         width: 40px;
       }
+
+      &Name {
+        gap: 2px;
+      }
+    }
+
+    &__change {
+      width: 20%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+
+      &Desktop {
+        width: 9%;
+      }
+    }
+
+    &__claim {
+      width: 14%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+    }
+
+    &__stake {
+      width: 19%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+    }
+    &__extra {
+      width: 10%;
     }
 
     &__name {
@@ -40,106 +96,54 @@
       font-size: 16px;
       line-height: 1;
     }
-  }
-}
 
-.dashboard {
-  &Stat {
-    &:before {
+    &__desc {
       display: none;
     }
 
-    &:global.Mui-expanded {
-      margin: 0;
-    }
-
-    &Summary {
-      margin: 0;
-      min-height: 36px;
-      background-color: main.$var-clr-primary-dark;
-
-      :global .MuiAccordionSummary-content {
-        margin: 5px 0;
-      }
-
-      &:global.Mui-expanded {
-        min-height: 36px;
-      }
-
-      &Title {
-        svg {
-          width: 12px;
-          height: 12px;
-          color: main.$var-clr-purple;
-          margin-right: 10px;
-        }
-        p {
-          font-size: 12px;
-        }
-      }
-    }
-
-    .MuiAccordionDetails-root {
-      background-color: main.$var-clr-primary;
-    }
-
-    &Details:global.MuiAccordionDetails-root {
-      padding: 0;
-      background-color: main.$var-clr-primary;
-    }
-
-    &Card {
-      background-color: main.$var-clr-primary-dark;
-      background-image: none;
-    }
-
-    &Content {
-      $content: &;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-
-      &__Desktop {
-        flex-direction: row;
-
-        #{ $content }Item {
-          flex-direction: column;
-          padding: 15px;
-          border-right: 1px solid main.$var-clr-primary;
-          &Value {
-            font-size: 14px;
-            line-height: 18px;
-          }
-        }
-      }
-
-      &Item {
-        display: flex;
-        align-items: flex-start;
-        padding: 5px 10px;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-        flex: 1 1;
-        &Title {
-          margin: 3px 0;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 10px;
-          line-height: 13px;
-          color: main.$var-clr-text-secondary;
-        }
-
-        &Value {
-          white-space: nowrap;
-          margin: 3px 0;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 12px;
-          line-height: 18px;
-        }
-      }
+    &__deposit {
+      font-size: 14px;
     }
   }
+}
+
+.headerText {
+  padding: 5px 0;
+  white-space: nowrap;
+  color: main.$var-clr-text-secondary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+
+  &Earning {
+    padding-bottom: 10px;
+  }
+
+  &--increment {
+    color: main.$var-clr-text-green;
+  }
+}
+
+.clrFade {
+  color: main.$var-clr-text-purple;
+}
+
+.icon {
+  margin-left: 5px;
+  width: 12px;
+  height: 12px;
+}
+
+.smallText {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.earning {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 16px;
+  background-color: main.$var-clr-primary-darker-2;
 }

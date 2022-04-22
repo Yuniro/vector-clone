@@ -23,6 +23,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: ["DM Sans", "sans-serif"].join(","),
+    fontSize: 14,
   },
   status: {},
 });

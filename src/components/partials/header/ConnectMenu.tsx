@@ -1,11 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 // import { useSelector } from 'react-redux';
 import clsx from "clsx";
-import { Box, Button, SvgIcon, Typography, Popper, Paper, Divider, Link, Slide } from '@mui/material';
-import { ReactComponent as ArrowUpIcon } from '../../../assets/icons/arrow-up.svg';
-import { ReactComponent as CaretDownIcon } from '../../../assets/icons/caret-down.svg';
-import { ReactComponent as ConnectWalletIcon } from '../../../assets/icons/connect-wallet.svg';
-import { useWeb3Context } from '../../../common/hooks';
+import {
+  Box,
+  Button,
+  SvgIcon,
+  Typography,
+  Popper,
+  Paper,
+  Divider,
+  Link,
+  Slide,
+} from "@mui/material";
+import { ReactComponent as ArrowUpIcon } from "../../../assets/icons/arrow-up.svg";
+import { ReactComponent as CaretDownIcon } from "../../../assets/icons/caret-down.svg";
+import { ReactComponent as ConnectWalletIcon } from "../../../assets/icons/connect-wallet.svg";
+import { useWeb3Context } from "../../../common/hooks";
 import useResponsive from "../../../common/hooks/useResponsive";
 import styles from "./styles.module.scss";
 
@@ -22,7 +32,7 @@ function ConnectMenu() {
   //   return state.pendingTransactions;
   // });
 
-  let buttonText = 'Connect Wallet';
+  let buttonText = "Connect Wallet";
   let clickFunc: any = connect;
 
   const handleClick = (event: any) => {
@@ -30,21 +40,23 @@ function ConnectMenu() {
   };
 
   if (isConnected) {
-    buttonText = 'Walet';
+    buttonText = "Walet";
     clickFunc = disconnect;
   }
 
   if (pendingTransactions && pendingTransactions.length > 0) {
-    buttonText = 'In progress';
+    buttonText = "In progress";
     clickFunc = handleClick;
   }
 
   const open = Boolean(anchorEl);
-  const id = open ? 'ohm-popper-pending' : undefined;
+  const id = open ? "ohm-popper-pending" : undefined;
 
-  const primaryColor = '#31CB9E';
+  const primaryColor = "#31CB9E";
   const getEtherscanUrl = (txnHash: string) => {
-    return chainID === 4 ? 'https://rinkeby.etherscan.io/tx/' + txnHash : 'https://polygonscan.com/tx/' + txnHash;
+    return chainID === 4
+      ? "https://rinkeby.etherscan.io/tx/" + txnHash
+      : "https://polygonscan.com/tx/" + txnHash;
   };
 
   useEffect(() => {
@@ -69,26 +81,43 @@ function ConnectMenu() {
         onClick={clickFunc}
         startIcon={<ConnectWalletIcon className="fill-current" />}
       >
-        <p>{buttonText}</p>
+        {isDesktop && <p>{buttonText}</p>}
         {pendingTransactions.length > 0 && (
           <Slide direction="left" in={isHovering} {...{ timeout: 333 }}>
-            <SvgIcon className="caret-down" component={CaretDownIcon} htmlColor={primaryColor} />
+            <SvgIcon
+              className="caret-down"
+              component={CaretDownIcon}
+              htmlColor={primaryColor}
+            />
           </Slide>
         )}
       </Button>
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">
         <Paper className="ohm-menu" elevation={1}>
           {pendingTransactions.map((x: any) => (
-            <Link key={x.txnHash} href={getEtherscanUrl(x.txnHash)} color="primary" target="_blank" rel="noreferrer">
+            <Link
+              key={x.txnHash}
+              href={getEtherscanUrl(x.txnHash)}
+              color="primary"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="pending-txn-container">
-                <Typography style={{ color: primaryColor }}>{x.text}</Typography>
+                <Typography style={{ color: primaryColor }}>
+                  {x.text}
+                </Typography>
                 <SvgIcon component={ArrowUpIcon} htmlColor={primaryColor} />
               </div>
             </Link>
           ))}
           <Box className="add-tokens">
             <Divider color="secondary" />
-            <Button variant="text" color="secondary" onClick={disconnect} style={{ marginBottom: '0px' }}>
+            <Button
+              variant="text"
+              color="secondary"
+              onClick={disconnect}
+              style={{ marginBottom: "0px" }}
+            >
               <Typography>Disconnect</Typography>
             </Button>
           </Box>

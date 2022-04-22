@@ -7,6 +7,7 @@ import {
   Box,
   Typography,
   Card,
+  IconButton,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InfoIcon from "@mui/icons-material/Info";
@@ -41,7 +42,11 @@ const ProtocolStats: FunctionComponent<Props> = props => {
           className={clsx(styles.dashboardStat)}
         >
           <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
+            expandIcon={
+              <IconButton edge="end" aria-label="expand" component="span">
+                <ExpandMoreIcon />
+              </IconButton>
+            }
             aria-controls="panel1d-content"
             id="panel1d-header"
             className={clsx(

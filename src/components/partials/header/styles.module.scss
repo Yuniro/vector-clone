@@ -45,6 +45,10 @@
 
   &__mobile {
     min-width: auto;
+
+    :global .MuiButton-startIcon {
+      margin-right: 0;
+    }
   }
 }
 

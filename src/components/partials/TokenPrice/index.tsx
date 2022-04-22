@@ -1,8 +1,11 @@
 import React, { FunctionComponent } from "react";
 import clsx from "clsx";
-import Svg from "../Svg";
 import styles from "./styles.module.scss";
 import useResponsive from "../../../common/hooks/useResponsive";
+import IconXptp from "../../../assets/icons/icon-xptp.svg";
+import IconFuel from "../../../assets/icons/icon-fuel.svg";
+import IconZjoe from "../../../assets/icons/icon-zjoe.svg";
+import IconVtx from "../../../assets/icons/icon-vtx.svg";
 
 interface Props {
   link?: string;
@@ -10,8 +13,25 @@ interface Props {
   value: string;
 }
 
+const getTokenImgIcon = (icon: string) => {
+  switch (icon) {
+    case "icon-xptp":
+      return <img alt="icon" src={IconXptp} />;
+    case "icon-zjoe":
+      return <img alt="icon" src={IconZjoe} />;
+    case "icon-fuel":
+      return <img alt="icon" src={IconFuel} />;
+    case "icon-vtx":
+      return <img alt="icon" src={IconVtx} />;
+
+    default:
+      break;
+  }
+};
+
 const TokenPrice: FunctionComponent<Props> = ({ link, icon, value }) => {
   const isDesktop = useResponsive();
+
   return (
     <a
       href={link}
@@ -25,7 +45,7 @@ const TokenPrice: FunctionComponent<Props> = ({ link, icon, value }) => {
         isDesktop && styles.anchor__desktop
       )}
     >
-      <Svg type={icon} />
+      {getTokenImgIcon(icon)}
       <span
         className={clsx(
           "font-semibold",

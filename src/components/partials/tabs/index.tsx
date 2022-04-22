@@ -3,7 +3,7 @@ import { Tabs, Tab, TabsProps } from "@mui/material";
 import clsx from "clsx";
 import styles from "./styles.module.scss";
 
-interface TabPanelProps {
+export interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;

@@ -17,6 +17,7 @@ const PageSectionHeader: FunctionComponent<Props> = ({ children }) => {
         "whitespace-nowrap",
         "items-center",
         "font-semibold",
+        "text-white",
         "uppercase",
         styles.section__header
       )}

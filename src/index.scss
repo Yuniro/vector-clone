@@ -38,3 +38,9 @@ body {
   overflow: hidden;
   transition: all 0.33ms ease;
 }
+
+.MuiButton-contained {
+  padding: 10px 15px;
+  background-color: main.$var-clr-purple;
+  color: #fff;
+}
