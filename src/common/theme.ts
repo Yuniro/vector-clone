@@ -17,6 +17,12 @@ declare module "@mui/material/styles" {
 const theme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: "#24244a",
+    },
+    secondary: {
+      main: "#c7c7e1",
+    },
     background: {
       paper: "#16162c",
     },

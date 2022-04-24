@@ -22,11 +22,19 @@ interface Props extends TabPanelProps {
   pool: ModelPool;
 }
 
-const TabUnstake: FunctionComponent<Props> = ({ pool, value, index }) => {
+const TabConvert: FunctionComponent<Props> = ({ pool, value, index }) => {
   const isDesktop = useResponsive();
   return (
     <Box className={clsx("p-4")}>
       <TabPanel value={value} index={index}>
+        <Box className={clsx("flex flex-col w-full", styles.stakeInfo)}>
+          <Typography className="text-white font-bold text-base leading-5 pb-2.5">
+            {pool.convert?.title}
+          </Typography>
+          <Typography color="secondary" className="text-sm leading-5">
+            {pool.convert?.description}
+          </Typography>
+        </Box>
         <Box
           className={clsx(
             styles.actionSection,
@@ -35,7 +43,7 @@ const TabUnstake: FunctionComponent<Props> = ({ pool, value, index }) => {
         >
           <Box className="flex flex-1 flex-col">
             <Box className={clsx("flex w-full justify-between mb-2")}>
-              <Typography color="secondary">Unstake {pool.symbol}</Typography>
+              <Typography color="secondary">Stake {pool.symbol}</Typography>
               <Box className={clsx("flex text-white items-center")}>
                 <WalletIcon className="fill-current mr-2" />
                 <Typography color="secondary">{pool.depositVal}</Typography>
@@ -57,15 +65,38 @@ const TabUnstake: FunctionComponent<Props> = ({ pool, value, index }) => {
               />
             </FormControl>
           </Box>
-          <Box
-            className={clsx(
-              "flex",
-              "flex-1",
-              styles.actionBtn,
-              isDesktop && styles.actionBtnDesktop
-            )}
-          >
-            <Button variant="contained">unstake</Button>
+          <Box className={clsx("flex", "flex-1", "flex-col")}>
+            <Box
+              className={clsx(
+                "flex",
+                "flex-1",
+                "w-full",
+                "justify-center",
+                "items-center",
+                styles.twoStep
+              )}
+            >
+              <span className={styles.twoStepNumber}>1</span>
+              <span className={styles.twoStepLine}></span>
+              <span className={styles.twoStepNumber}>2</span>
+            </Box>
+            <Box
+              className={clsx(
+                "flex",
+                "gap-5",
+                "w-full",
+                styles.actionBtn,
+                styles["actionBtn--twoCheck"],
+                isDesktop && styles.actionBtnDesktop
+              )}
+            >
+              <Button className="w-full" variant="contained">
+                Approve
+              </Button>
+              <Button className="w-full" variant="contained">
+                Convert
+              </Button>
+            </Box>
           </Box>
         </Box>
       </TabPanel>
@@ -73,6 +104,6 @@ const TabUnstake: FunctionComponent<Props> = ({ pool, value, index }) => {
   );
 };
 
-TabUnstake.defaultProps = {};
+TabConvert.defaultProps = {};
 
-export default React.memo(TabUnstake);
+export default React.memo(TabConvert);

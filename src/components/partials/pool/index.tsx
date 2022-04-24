@@ -19,6 +19,8 @@ import Svg from "../Svg";
 import Tabs from "../tabs";
 import TabInfo from "./tabInfo";
 import TabUnstake from "./tabUnstake";
+import TabStake from "./tabStake";
+import TabConvert from "./tabConvert";
 
 interface Props {
   pool: ModelPool;
@@ -38,11 +40,16 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
 
   return (
     <div className={clsx("mb-2.5")}>
-      <Card className={clsx("text-center", styles.card)} elevation={1}>
+      <Card className={clsx(styles.card)} elevation={1}>
         <Accordion className={clsx(styles.card__accord)}>
           <AccordionSummary
             expandIcon={
-              <IconButton edge="end" aria-label="expand" component="span">
+              <IconButton
+                className={styles.cardIcon}
+                edge="end"
+                aria-label="expand"
+                component="span"
+              >
                 <MoreVertIcon />
               </IconButton>
             }
@@ -158,9 +165,17 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                     return (
                       <TabInfo value={tabIndex} index={idx} infos={pool.info} />
                     );
+                  case "stake":
+                    return (
+                      <TabStake value={tabIndex} index={idx} pool={pool} />
+                    );
                   case "unstake":
                     return (
                       <TabUnstake value={tabIndex} index={idx} pool={pool} />
+                    );
+                  case "convert":
+                    return (
+                      <TabConvert value={tabIndex} index={idx} pool={pool} />
                     );
 
                   default:
