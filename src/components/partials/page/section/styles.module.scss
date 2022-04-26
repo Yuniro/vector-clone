@@ -2,13 +2,11 @@
 
 .section {
   margin-bottom: 30px;
-  margin-top: 10px;
 
   &__header {
     font-size: 12px;
     line-height: 1.2;
     letter-spacing: 1.3px;
-    margin-bottom: 15px;
     color: main.$var-clr-text-secondary;
 
     &::after {

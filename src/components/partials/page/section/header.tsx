@@ -4,7 +4,7 @@ import clsx from "clsx";
 import styles from "./styles.module.scss";
 
 interface Props {
-  children: JSX.Element | string;
+  children?: JSX.Element | string;
 }
 
 const PageSectionHeader: FunctionComponent<Props> = ({ children }) => {

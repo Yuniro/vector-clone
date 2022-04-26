@@ -13,7 +13,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import InfoIcon from "@mui/icons-material/Info";
 import SwipeableViews from "react-swipeable-views";
 import useResponsive from "../../../common/hooks/useResponsive";
-import { ModelPool } from "../../../common/models";
+import { ModelPool, PoolType } from "../../../common/models";
 import styles from "./styles.module.scss";
 import Svg from "../Svg";
 import Tabs from "../tabs";
@@ -71,25 +71,31 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                 <Svg type={pool.icon ? pool.icon : "icon-ptp"} />
                 <Box
                   className={clsx(
-                    "flex flex-col flex-wrap",
+                    "flex flex-col flex-wrap justify-center",
                     styles.card__content__infoName
                   )}
                 >
                   <Typography className={styles.card__content__name}>
                     {pool.name}
                   </Typography>
-                  <Typography className={styles.card__content__desc}>
-                    {pool.description}
-                  </Typography>
-                  <Typography className={styles.card__content__deposit}>
-                    {`${pool.depositVal} ${pool.name}`}
-                  </Typography>
+                  {pool.type === PoolType.PRIMARY && (
+                    <>
+                      <Typography className={styles.card__content__desc}>
+                        {pool.description}
+                      </Typography>
+                      <Typography className={styles.card__content__deposit}>
+                        {`${pool.depositVal} ${pool.name}`}
+                      </Typography>
+                    </>
+                  )}
                 </Box>
               </Box>
               <Box className={clsx(styles.card__content__change)}>
-                <Typography className={clsx(styles.headerText)}>
-                  {pool.month}
-                </Typography>
+                {pool.type === PoolType.PRIMARY && (
+                  <Typography className={clsx(styles.headerText)}>
+                    {pool.month}
+                  </Typography>
+                )}
                 <Box className="flex items-center">
                   <Typography
                     className={clsx(
@@ -103,9 +109,11 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
               {isDesktop && (
                 <>
                   <Box className={clsx(styles.card__content__stake)}>
-                    <Typography className={clsx(styles.headerText)}>
-                      Staked {`${pool.symbol}`}
-                    </Typography>
+                    {pool.type === PoolType.PRIMARY && (
+                      <Typography className={clsx(styles.headerText)}>
+                        Staked {`${pool.symbol}`}
+                      </Typography>
+                    )}
                     <Box>
                       <Typography
                         className={clsx(
@@ -118,9 +126,11 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                     </Box>
                   </Box>
                   <Box className={clsx(styles.card__content__claim)}>
-                    <Typography className={clsx(styles.headerText)}>
-                      TVL
-                    </Typography>
+                    {pool.type === PoolType.PRIMARY && (
+                      <Typography className={clsx(styles.headerText)}>
+                        TVL
+                      </Typography>
+                    )}
                     <Box>
                       <Typography className={styles.card__content__deposit}>
                         {`${pool.tvlValue}`}
@@ -128,9 +138,11 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                     </Box>
                   </Box>
                   <Box className={clsx(styles.card__content__claim)}>
-                    <Typography className={clsx(styles.headerText)}>
-                      Claimable
-                    </Typography>
+                    {pool.type === PoolType.PRIMARY && (
+                      <Typography className={clsx(styles.headerText)}>
+                        Claimable
+                      </Typography>
+                    )}
                     <Box className="flex  items-center">
                       <Typography
                         className={clsx(
@@ -157,7 +169,7 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
             />
             <SwipeableViews
               index={tabIndex}
-              onChangeIndex={index => setTabIndex(index)}
+              onChangeIndex={(index) => setTabIndex(index)}
             >
               {tabs.map((tab, idx) => {
                 switch (tab) {

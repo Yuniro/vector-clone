@@ -12,8 +12,17 @@ export type ModelPoolConvert = {
   description?: string;
 };
 
+export enum PoolType {
+  PRIMARY = "primary",
+  PLATYPUS_PRIMARY = "platypusPrimary",
+  PLATYPUS_ALT = "platypusAlt",
+  TRADER_JOE = "traderJoe",
+  VECTOR_LP = "vectorLp",
+}
+
 export type ModelPool = {
   name: string;
+  type: PoolType;
   description?: string;
   icon?: string;
   symbol?: string;

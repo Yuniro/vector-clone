@@ -11,6 +11,7 @@
 
   &Icon:global.MuiIconButton-edgeEnd {
     padding: 5px;
+    margin-right: 0;
   }
 
   &__accord {
@@ -39,6 +40,15 @@
           )
           repeat scroll 0% 0%,
         transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-yellow {
+      background: radial-gradient(
+          13.94% 159.29% at 0% 50%,
+          rgba(240, 185, 11, 0.4) 0%,
+          rgba(240, 185, 11, 0) 100%
+        ),
+        transparent;
     }
   }
 
@@ -197,6 +207,16 @@
 
 .stakeInfo {
   margin-bottom: 30px;
+}
+
+.poolsTableHeader {
+  p {
+    color: white;
+    padding: 10px 0;
+  }
+  .clrFade {
+    color: white;
+  }
 }
 
 button.maxBtn {

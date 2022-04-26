@@ -1,25 +1,24 @@
 import React, { FunctionComponent } from "react";
+import { Box } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
 import UserInfoCard from "../../components/partials/user/info-card";
 import PageSection, {
   SectionHeader,
 } from "../../components/partials/page/section";
 import PageWrapper from "../../components/partials/page/wrapper";
-import { ModelPool } from "../../common/models";
+import { ModelPool, PoolType } from "../../common/models";
 import ProtocolStats from "../../components/partials/protocol-stats";
 import PoolCard from "../../components/partials/pool";
+import PoolsTableHeader from "../../components/partials/pool/header";
 import Tabs, { TabPanel } from "../../components/partials/tabs";
 import styles from "./styles.module.scss";
 
 interface Props {}
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-const mainPools: ModelPool[] = [
+
+const poolsData: ModelPool[] = [
   {
     name: "VTX",
+    type: PoolType.PRIMARY,
     symbol: "VTX",
     icon: "icon-vtx",
     description: "Stake VTX",
@@ -47,6 +46,7 @@ const mainPools: ModelPool[] = [
   },
   {
     name: "PTP",
+    type: PoolType.PRIMARY,
     symbol: "xPTP",
     icon: "icon-ptp",
     description: "Convert PTP / Stake xPTP",
@@ -86,6 +86,29 @@ const mainPools: ModelPool[] = [
       },
     ],
   },
+  {
+    name: "DAI.e",
+    type: PoolType.PLATYPUS_PRIMARY,
+    icon: "icon-dai_e",
+    symbol: "DAI.e",
+    increment: 9.1,
+    depositVal: 0,
+    tvlValue: "$29,994,382",
+    claimable: "$0.00",
+    background: "yellow",
+    withdraw: true,
+    deposit: true,
+    info: [
+      {
+        title: "DAI.e Contract",
+        id: "0x22d4002028f537599bE9f666d1c4Fa138522f9c8",
+      },
+      {
+        title: "Staking Contract",
+        id: "0x060556209E507d30f2167a101bFC6D256Ed2f3e1",
+      },
+    ],
+  },
 ];
 
 const Stake: FunctionComponent<Props> = () => {
@@ -100,11 +123,13 @@ const Stake: FunctionComponent<Props> = () => {
         </PageSection>
         <PageSection>
           <SectionHeader>Main pools</SectionHeader>
-          <>
-            {mainPools.map((mp, idx) => (
-              <PoolCard pool={mp} key={`pl_${idx}`} />
-            ))}
-          </>
+          <Box className="pt-4">
+            {poolsData
+              .filter((pool) => pool.type === PoolType.PRIMARY)
+              .map((mp, idx) => (
+                <PoolCard pool={mp} key={`pl_${idx}`} />
+              ))}
+          </Box>
         </PageSection>
         <PageSection>
           <Tabs
@@ -114,16 +139,36 @@ const Stake: FunctionComponent<Props> = () => {
           ></Tabs>
           <SwipeableViews
             index={tabIndex}
-            onChangeIndex={index => setTabIndex(index)}
+            onChangeIndex={(index) => setTabIndex(index)}
           >
             <TabPanel value={tabIndex} index={0}>
-              a
+              <PageSection>
+                <SectionHeader />
+                <PoolsTableHeader />
+                <Box>
+                  {poolsData
+                    .filter((pool) => pool.type === PoolType.PLATYPUS_PRIMARY)
+                    .map((mp, idx) => (
+                      <PoolCard pool={mp} key={`pl_${idx}`} />
+                    ))}
+                </Box>
+              </PageSection>
+              <PageSection>
+                <SectionHeader>Alt Pools</SectionHeader>
+                <PoolsTableHeader />
+              </PageSection>
             </TabPanel>
             <TabPanel value={tabIndex} index={1}>
-              b
+              <PageSection>
+                <SectionHeader />
+                <PoolsTableHeader />
+              </PageSection>
             </TabPanel>
             <TabPanel value={tabIndex} index={2}>
-              c
+              <PageSection>
+                <SectionHeader />
+                <PoolsTableHeader />
+              </PageSection>
             </TabPanel>
           </SwipeableViews>
         </PageSection>
