@@ -38,6 +38,8 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
   pool.withdraw && tabs.push("withdraw");
   pool.info && tabs.push("info");
 
+  const path = process.env.PUBLIC_URL;
+
   return (
     <div className={clsx("mb-2.5")}>
       <Card className={clsx(styles.card)} elevation={1}>
@@ -68,7 +70,10 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                   isDesktop && styles.card__content__infoDesktop
                 )}
               >
-                <Svg type={pool.icon ? pool.icon : "icon-ptp"} />
+                <img
+                  alt="token-img"
+                  src={`${path}/assets/icons/${pool.token.icon}.svg`}
+                />
                 <Box
                   className={clsx(
                     "flex flex-col flex-wrap justify-center",
@@ -76,7 +81,7 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                   )}
                 >
                   <Typography className={styles.card__content__name}>
-                    {pool.name}
+                    {pool.token.name}
                   </Typography>
                   {pool.type === PoolType.PRIMARY && (
                     <>
@@ -84,7 +89,7 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                         {pool.description}
                       </Typography>
                       <Typography className={styles.card__content__deposit}>
-                        {`${pool.depositVal} ${pool.name}`}
+                        {`${pool.depositVal} ${pool.token.name}`}
                       </Typography>
                     </>
                   )}
@@ -111,7 +116,7 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                   <Box className={clsx(styles.card__content__stake)}>
                     {pool.type === PoolType.PRIMARY && (
                       <Typography className={clsx(styles.headerText)}>
-                        Staked {`${pool.symbol}`}
+                        Staked {`${pool.token.symbol}`}
                       </Typography>
                     )}
                     <Box>
@@ -121,7 +126,7 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                           styles.clrFade
                         )}
                       >
-                        {`${pool.depositVal} ${pool.symbol}`}
+                        {`${pool.depositVal} ${pool.token.symbol}`}
                       </Typography>
                     </Box>
                   </Box>
@@ -169,25 +174,45 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
             />
             <SwipeableViews
               index={tabIndex}
-              onChangeIndex={(index) => setTabIndex(index)}
+              onChangeIndex={index => setTabIndex(index)}
             >
               {tabs.map((tab, idx) => {
                 switch (tab) {
                   case "info":
                     return (
-                      <TabInfo value={tabIndex} index={idx} infos={pool.info} />
+                      <TabInfo
+                        key={`k_tab_${idx}`}
+                        value={tabIndex}
+                        index={idx}
+                        infos={pool.info}
+                      />
                     );
                   case "stake":
                     return (
-                      <TabStake value={tabIndex} index={idx} pool={pool} />
+                      <TabStake
+                        key={`k_tab_${idx}`}
+                        value={tabIndex}
+                        index={idx}
+                        pool={pool}
+                      />
                     );
                   case "unstake":
                     return (
-                      <TabUnstake value={tabIndex} index={idx} pool={pool} />
+                      <TabUnstake
+                        key={`k_tab_${idx}`}
+                        value={tabIndex}
+                        index={idx}
+                        pool={pool}
+                      />
                     );
                   case "convert":
                     return (
-                      <TabConvert value={tabIndex} index={idx} pool={pool} />
+                      <TabConvert
+                        key={`k_tab_${idx}`}
+                        value={tabIndex}
+                        index={idx}
+                        pool={pool}
+                      />
                     );
 
                   default:

@@ -20,12 +20,18 @@ export enum PoolType {
   VECTOR_LP = "vectorLp",
 }
 
-export type ModelPool = {
+export type ModelPoolToken = {
   name: string;
-  type: PoolType;
-  description?: string;
   icon?: string;
   symbol?: string;
+};
+
+export interface ModelPool {
+  type: PoolType;
+  token: ModelPoolToken;
+  tokenSecondary?: ModelPoolToken;
+  isBoosted?: boolean;
+  description?: string;
   month?: string;
   background: string;
   increment: number;
@@ -38,4 +44,10 @@ export type ModelPool = {
   deposit?: boolean;
   withdraw?: boolean;
   info: ModelPoolInfo[];
-};
+}
+
+export interface ModelPoolAlt {
+  background: string;
+  primary: ModelPool;
+  secondary: ModelPool;
+}

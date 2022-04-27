@@ -35,7 +35,9 @@ const TabUnstake: FunctionComponent<Props> = ({ pool, value, index }) => {
         >
           <Box className="flex flex-1 flex-col">
             <Box className={clsx("flex w-full justify-between mb-2")}>
-              <Typography color="secondary">Unstake {pool.symbol}</Typography>
+              <Typography color="secondary">
+                Unstake {pool.token.symbol}
+              </Typography>
               <Box className={clsx("flex text-white items-center")}>
                 <WalletIcon className="fill-current mr-2" />
                 <Typography color="secondary">{pool.depositVal}</Typography>

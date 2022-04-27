@@ -50,6 +50,36 @@
         ),
         transparent;
     }
+
+    &--bg-red {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(242, 113, 106, 0.4) 0%,
+            rgba(242, 113, 106, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-blue {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(62, 115, 196, 0.4) 0%,
+            rgba(62, 115, 196, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-green {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(38, 161, 123, 0.4) 0%,
+            rgba(38, 161, 123, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
   }
 
   &__content {
