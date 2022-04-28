@@ -44,17 +44,19 @@ const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
         >
           <Typography className={styles.card__content__name}>
             {pool.token.name}
+            {pool.isBoosted && (
+              <span className={styles.card__content__nameBoosted}>boosted</span>
+            )}
           </Typography>
-          {pool.type === PoolType.PRIMARY && (
-            <>
-              <Typography className={styles.card__content__desc}>
-                {pool.description}
-              </Typography>
-              <Typography className={styles.card__content__deposit}>
-                {`${pool.depositVal} ${pool.token.name}`}
-              </Typography>
-            </>
+          {pool.description && (
+            <Typography className={styles.card__content__desc}>
+              {pool.description}
+            </Typography>
           )}
+
+          <Typography className={styles.card__content__deposit}>
+            {`${pool.depositVal} ${pool.token.symbol}`}
+          </Typography>
         </Box>
       </Box>
       <Box className={clsx(styles.card__content__change)}>

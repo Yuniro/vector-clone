@@ -24,17 +24,31 @@ interface Props extends TabPanelProps {
 
 const TabWithdrawAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
   const isDesktop = useResponsive();
+  const path = process.env.PUBLIC_URL;
   return (
     <Box className={clsx("p-4")}>
       <TabPanel value={value} index={index}>
         <Box
           className={clsx(
             styles.actionSection,
+            styles["actionSection--alt"],
             isDesktop && styles.actionSectionDesktop
           )}
         >
-          <Box className="flex flex-1 flex-col">
-            <Box className={clsx("flex w-full justify-between mb-2")}>
+          <Box
+            className={clsx(
+              "flex flex-1 flex-col",
+              styles["actionSection--altMargin"]
+            )}
+          >
+            <Box
+              className={clsx("flex w-full items-center justify-between mb-2")}
+            >
+              <img
+                alt="token-small-img"
+                className={styles["actionSection--altImg"]}
+                src={`${path}/assets/icons/${pool.primary.token.icon}.svg`}
+              />
               <Typography color="secondary">
                 Withdraw {pool.primary.token.symbol}
               </Typography>
@@ -65,6 +79,7 @@ const TabWithdrawAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
             className={clsx(
               "flex",
               "flex-1",
+              styles["actionSection--altMargin"],
               styles.actionBtn,
               isDesktop && styles.actionBtnDesktop
             )}
@@ -76,11 +91,24 @@ const TabWithdrawAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
         <Box
           className={clsx(
             styles.actionSection,
+            styles["actionSection--alt"],
             isDesktop && styles.actionSectionDesktop
           )}
         >
-          <Box className="flex flex-1 flex-col">
-            <Box className={clsx("flex w-full justify-between mb-2")}>
+          <Box
+            className={clsx(
+              "flex flex-1 flex-col",
+              styles["actionSection--altMargin"]
+            )}
+          >
+            <Box
+              className={clsx("flex w-full items-center justify-between mb-2")}
+            >
+              <img
+                alt="token-small-img"
+                className={styles["actionSection--altImg"]}
+                src={`${path}/assets/icons/${pool.primary.token.icon}.svg`}
+              />
               <Typography color="secondary">
                 Withdraw {pool.secondary.token.symbol}
               </Typography>
@@ -112,6 +140,7 @@ const TabWithdrawAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
               "flex",
               "flex-1",
               styles.actionBtn,
+              styles["actionSection--altMargin"],
               isDesktop && styles.actionBtnDesktop
             )}
           >

@@ -24,19 +24,34 @@ interface Props extends TabPanelProps {
 
 const TabDepositAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
   const isDesktop = useResponsive();
+  const path = process.env.PUBLIC_URL;
+
   return (
     <Box className={clsx("p-4")}>
       <TabPanel value={value} index={index}>
         <Box
           className={clsx(
             styles.actionSection,
+            styles["actionSection--alt"],
             isDesktop && styles.actionSectionDesktop
           )}
         >
-          <Box className="flex flex-1 flex-col">
-            <Box className={clsx("flex w-full justify-between mb-2")}>
+          <Box
+            className={clsx(
+              "flex flex-1 flex-col",
+              styles["actionSection--altMargin"]
+            )}
+          >
+            <Box
+              className={clsx("flex w-full justify-between items-center mb-2")}
+            >
+              <img
+                alt="token-small-img"
+                className={styles["actionSection--altImg"]}
+                src={`${path}/assets/icons/${pool.primary.token.icon}.svg`}
+              />
               <Typography color="secondary">
-                Withdraw {pool.primary.token.symbol}
+                Deposit {pool.primary.token.symbol}
               </Typography>
               <Box className={clsx("flex text-white items-center")}>
                 <WalletIcon className="fill-current mr-2" />
@@ -66,23 +81,39 @@ const TabDepositAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
               "flex",
               "flex-1",
               styles.actionBtn,
+              styles["actionSection--altMargin"],
               isDesktop && styles.actionBtnDesktop
             )}
           >
-            <Button variant="contained">deposit</Button>
+            <Button variant="contained">
+              approve {pool.primary.token.symbol}
+            </Button>
           </Box>
         </Box>
 
         <Box
           className={clsx(
             styles.actionSection,
+            styles["actionSection--alt"],
             isDesktop && styles.actionSectionDesktop
           )}
         >
-          <Box className="flex flex-1 flex-col">
-            <Box className={clsx("flex w-full justify-between mb-2")}>
+          <Box
+            className={clsx(
+              "flex flex-1 flex-col",
+              styles["actionSection--altMargin"]
+            )}
+          >
+            <Box
+              className={clsx("flex w-full items-center justify-between mb-2")}
+            >
+              <img
+                alt="token-small-img"
+                className={styles["actionSection--altImg"]}
+                src={`${path}/assets/icons/${pool.secondary.token.icon}.svg`}
+              />
               <Typography color="secondary">
-                Withdraw {pool.secondary.token.symbol}
+                Deposit {pool.secondary.token.symbol}
               </Typography>
               <Box className={clsx("flex text-white items-center")}>
                 <WalletIcon className="fill-current mr-2" />
@@ -112,10 +143,13 @@ const TabDepositAlt: FunctionComponent<Props> = ({ pool, value, index }) => {
               "flex",
               "flex-1",
               styles.actionBtn,
+              styles["actionSection--altMargin"],
               isDesktop && styles.actionBtnDesktop
             )}
           >
-            <Button variant="contained">deposit</Button>
+            <Button variant="contained">
+              approve {pool.secondary.token.symbol}
+            </Button>
           </Box>
         </Box>
       </TabPanel>

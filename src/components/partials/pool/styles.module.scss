@@ -156,6 +156,19 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 1;
+
+      &Boosted {
+        padding: 2px 4px;
+        border-radius: 3px;
+        background-color: rgb(174, 243, 60);
+        color: rgb(0, 0, 0);
+        font-style: italic;
+        font-family: DM Sans;
+        font-size: 11px;
+        font-weight: 700;
+        margin-left: 10px;
+        text-transform: uppercase;
+      }
     }
 
     &__desc {
@@ -240,6 +253,22 @@
       justify-content: space-around;
       align-items: flex-end;
       gap: 30px;
+    }
+
+    &--alt {
+      flex-direction: row;
+      border: 1px solid #313165;
+      align-items: flex-end;
+      border-radius: 5px;
+
+      &Margin {
+        margin: 10px;
+      }
+
+      &Img {
+        height: 15px;
+        margin-right: 7px;
+      }
     }
   }
 
