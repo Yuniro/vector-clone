@@ -1,0 +1,23 @@
+@use "../../../index.scss" as main;
+
+.anchor {
+  gap: 5px;
+  img {
+    width: 15px;
+    height: 15px;
+  }
+
+  &__fuel {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__desktop {
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@use "sass:math";
+
+// Base
+$rem-base: 16px;
+$base-line-height: 1;
+
+// Application Colors
+$clr-primary: #24244a;
+$clr-primary-dark: #16162c;
+$clr-primary-darker: #1a1a36;
+$clr-primary-darker-2: #101027;
+$clr-primary-darkest: #0b0b1f;
+$clr-white: #fff;
+
+$clr-text-secondary: #c7c7e1;
+$clr-text-purple: #717299;
+$clr-text-green: #aef33c;
+
+$clr-purple: #6869e7;
+$clr-purple-2: rgba(104, 105, 231, 0.2);

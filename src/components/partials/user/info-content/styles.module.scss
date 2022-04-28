@@ -1,0 +1,46 @@
+.info {
+  height: 100%;
+  background: #24244a;
+
+  &__content {
+    padding: 10px !important;
+    cursor: pointer;
+  }
+
+  &__header {
+    font-size: 10px;
+    line-height: 13px;
+    white-space: normal;
+    padding-bottom: 3px;
+    color: #c7c7e1;
+    font-weight: 500;
+
+    &__desktop {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  &__value {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+
+    &__desktop {
+      font-size: 22px;
+      line-height: 29px;
+    }
+
+    &--reward {
+      color: #aef33c;
+    }
+  }
+
+  &__currency {
+    display: none;
+    font-size: 14px;
+    &__desktop {
+      display: inline-flex;
+    }
+  }
+}

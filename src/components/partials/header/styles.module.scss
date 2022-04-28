@@ -1,0 +1,74 @@
+@use "../../../styles/index.scss" as main;
+
+.header {
+  padding: 10px;
+  background: linear-gradient(
+      90deg,
+      main.$var-clr-purple-2,
+      rgba(104, 105, 231, 0) 25%
+    ),
+    main.$var-clr-primary-darker;
+
+  &__desktop {
+    min-height: 4rem;
+    padding: 0;
+  }
+
+  &__toolbar {
+    min-height: auto;
+    padding: 0;
+
+    &__desktop {
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+.logo {
+  gap: 5px;
+
+  &__text {
+    &__desktop svg {
+      width: 100px;
+    }
+  }
+}
+
+.buttonConnect {
+  min-height: 40px;
+  background-color: main.$var-clr-primary !important;
+  padding: 10px 15px;
+  box-shadow: none;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  &__mobile {
+    min-width: auto;
+
+    :global .MuiButton-startIcon {
+      margin-right: 0;
+    }
+  }
+}
+
+.navMore {
+  padding: 0;
+
+  &__button {
+    padding: 10px 15px;
+    text-transform: capitalize;
+    color: main.$var-clr-text-secondary;
+  }
+
+  &__link {
+    a {
+      color: main.$var-clr-text-secondary;
+      text-decoration: none;
+      padding: 14px 0;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+}

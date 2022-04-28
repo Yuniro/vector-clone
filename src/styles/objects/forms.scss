@@ -1,0 +1,8 @@
+@use "../settings/globals.scss" as var;
+
+%maxBtn {
+  padding: 5px 15px;
+  color: var.$clr-text-purple;
+  background-color: var.$clr-primary;
+  font-weight: 400;
+}
