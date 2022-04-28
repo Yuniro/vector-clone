@@ -5,43 +5,38 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
-  Typography,
   Card,
   IconButton,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import InfoIcon from "@mui/icons-material/Info";
 import SwipeableViews from "react-swipeable-views";
 import useResponsive from "../../../common/hooks/useResponsive";
-import { ModelPool, PoolType } from "../../../common/models";
+import { ModelPoolAlt } from "../../../common/models";
 import styles from "./styles.module.scss";
-import Svg from "../Svg";
 import Tabs from "../tabs";
 import TabInfo from "./tabInfo";
-import TabUnstake from "./tabUnstake";
-import TabStake from "./tabStake";
-import TabConvert from "./tabConvert";
-import TabWithdraw from "./tabWithdraw";
-import TabDeposit from "./tabDeposit";
 import PoolCardRow from "./poolCardRow";
+import TabDepositAlt from "./tabDepositAlt";
+import TabWithdrawAlt from "./tabWithdrawAlt";
 
 interface Props {
-  pool: ModelPool;
+  pool: ModelPoolAlt;
   isPrimary?: boolean;
 }
 
-const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
+const PoolCardAlt: FunctionComponent<Props> = ({ pool, isPrimary }) => {
   const [tabIndex, setTabIndex] = React.useState(0);
   const isDesktop = useResponsive();
   const tabs = [];
-  pool.convert && tabs.push("convert");
-  pool.stake && tabs.push("stake");
-  pool.unstake && tabs.push("unstake");
-  pool.deposit && tabs.push("deposit");
-  pool.withdraw && tabs.push("withdraw");
-  pool.info && tabs.push("info");
+  pool.primary.convert && tabs.push("convert");
+  pool.primary.stake && tabs.push("stake");
+  pool.primary.unstake && tabs.push("unstake");
+  pool.primary.deposit && tabs.push("deposit");
+  pool.primary.withdraw && tabs.push("withdraw");
+  pool.primary.info && tabs.push("info");
 
   const path = process.env.PUBLIC_URL;
+  const infos = [...pool.primary.info, ...pool.secondary.info];
 
   return (
     <div className={clsx("mb-2.5")}>
@@ -63,7 +58,16 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
               styles[`card__summary--bg-${pool.background}`]
             )}
           >
-            <PoolCardRow pool={pool} />
+            <Box className={clsx("flex flex-col flex-1")}>
+              <PoolCardRow pool={pool.primary} />
+              <Box
+                className={clsx(
+                  styles.card__summaryDivide,
+                  isDesktop && styles["card__summaryDivide--desktop"]
+                )}
+              ></Box>
+              <PoolCardRow pool={pool.secondary} />
+            </Box>
           </AccordionSummary>
           <AccordionDetails className={"w-full p-0"}>
             <Tabs
@@ -78,45 +82,9 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
             >
               {tabs.map((tab, idx) => {
                 switch (tab) {
-                  case "info":
-                    return (
-                      <TabInfo
-                        key={`k_tab_${idx}`}
-                        value={tabIndex}
-                        index={idx}
-                        infos={pool.info}
-                      />
-                    );
-                  case "stake":
-                    return (
-                      <TabStake
-                        key={`k_tab_${idx}`}
-                        value={tabIndex}
-                        index={idx}
-                        pool={pool}
-                      />
-                    );
-                  case "unstake":
-                    return (
-                      <TabUnstake
-                        key={`k_tab_${idx}`}
-                        value={tabIndex}
-                        index={idx}
-                        pool={pool}
-                      />
-                    );
-                  case "convert":
-                    return (
-                      <TabConvert
-                        key={`k_tab_${idx}`}
-                        value={tabIndex}
-                        index={idx}
-                        pool={pool}
-                      />
-                    );
                   case "deposit":
                     return (
-                      <TabDeposit
+                      <TabDepositAlt
                         key={`k_tab_${idx}`}
                         value={tabIndex}
                         index={idx}
@@ -125,40 +93,27 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
                     );
                   case "withdraw":
                     return (
-                      <TabWithdraw
+                      <TabWithdrawAlt
                         key={`k_tab_${idx}`}
                         value={tabIndex}
                         index={idx}
                         pool={pool}
                       />
                     );
-
+                  case "info":
+                    return (
+                      <TabInfo
+                        key={`k_tab_${idx}`}
+                        value={tabIndex}
+                        index={idx}
+                        infos={infos}
+                      />
+                    );
                   default:
                     break;
                 }
               })}
             </SwipeableViews>
-            {!isDesktop && (
-              <Box className={styles.earning}>
-                <Typography
-                  className={clsx(styles.headerText, styles.headerTextEarning)}
-                >
-                  Earnings
-                </Typography>
-
-                <Box className="flex  items-center">
-                  <Typography
-                    className={clsx(
-                      styles.card__content__deposit,
-                      styles.clrFade
-                    )}
-                  >
-                    {`${pool.claimable}`}
-                  </Typography>
-                  <InfoIcon className={clsx(styles.icon, styles.clrFade)} />
-                </Box>
-              </Box>
-            )}
           </AccordionDetails>
         </Accordion>
       </Card>
@@ -166,8 +121,8 @@ const PoolCard: FunctionComponent<Props> = ({ pool, isPrimary }) => {
   );
 };
 
-PoolCard.defaultProps = {
+PoolCardAlt.defaultProps = {
   isPrimary: false,
 };
 
-export default React.memo(PoolCard);
+export default React.memo(PoolCardAlt);

@@ -6,13 +6,14 @@ import PageSection, {
   SectionHeader,
 } from "../../components/partials/page/section";
 import PageWrapper from "../../components/partials/page/wrapper";
-import { ModelPool, PoolType } from "../../common/models";
 import dummyMainPools from "../../common/data/mainPools";
 import dummyPlaytpusPrimaryPools from "../../common/data/playtpusPrimaryPool";
+import dummyPlaytpusAltPools from "../../common/data/playtpusAltPool";
 import dummyTraderJoePool from "../../common/data/traderJoePool";
 import dummyVectorLpPool from "../../common/data/vectorLpPool";
 import ProtocolStats from "../../components/partials/protocol-stats";
 import PoolCard from "../../components/partials/pool";
+import PoolCardAlt from "../../components/partials/pool/poolCardAlt";
 import PoolsTableHeader from "../../components/partials/pool/header";
 import Tabs, { TabPanel } from "../../components/partials/tabs";
 import styles from "./styles.module.scss";
@@ -60,6 +61,11 @@ const Stake: FunctionComponent<Props> = () => {
               <PageSection>
                 <SectionHeader>Alt Pools</SectionHeader>
                 <PoolsTableHeader />
+                <Box>
+                  {dummyPlaytpusAltPools.map((mp, idx) => (
+                    <PoolCardAlt pool={mp} key={`pl_${idx}`} />
+                  ))}
+                </Box>
               </PageSection>
             </TabPanel>
             <TabPanel value={tabIndex} index={1}>

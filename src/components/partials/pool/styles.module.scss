@@ -22,6 +22,10 @@
   &__summary {
     padding: 5px;
 
+    &--alt {
+      flex-direction: column;
+    }
+
     &--bg-blue-light {
       background: radial-gradient(
             13.94% 159.29% at 0% 50%,
@@ -79,6 +83,23 @@
           )
           repeat scroll 0% 0%,
         transparent none repeat scroll 0% 0%;
+    }
+
+    &Divide {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        270deg,
+        rgba(50, 50, 99, 0),
+        rgba(50, 50, 99, 0.75) 15%,
+        #323263 50%,
+        rgba(50, 50, 99, 0.75) 85%,
+        rgba(50, 50, 99, 0)
+      );
+      margin: 5px 0;
+      &--desktop {
+        margin: 15px 0;
+      }
     }
   }
 
@@ -143,6 +164,26 @@
 
     &__deposit {
       font-size: 14px;
+    }
+
+    &Icon {
+      height: 32px;
+      padding-right: 10px;
+      margin-left: 0;
+
+      &Desktop {
+        padding-right: 15px;
+      }
+
+      &--primary {
+        height: 40px;
+        margin-right: 15px;
+        margin-left: 5px;
+        width: 40px;
+        &Desktop {
+          margin-right: 20px;
+        }
+      }
     }
   }
 }
