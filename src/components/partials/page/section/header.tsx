@@ -5,9 +5,10 @@ import styles from "./styles.module.scss";
 
 interface Props {
   children?: JSX.Element | string;
+  isLarge?: boolean;
 }
 
-const PageSectionHeader: FunctionComponent<Props> = ({ children }) => {
+const PageSectionHeader: FunctionComponent<Props> = ({ children, isLarge }) => {
   return (
     <Typography
       variant="h2"
@@ -19,7 +20,8 @@ const PageSectionHeader: FunctionComponent<Props> = ({ children }) => {
         "font-semibold",
         "text-white",
         "uppercase",
-        styles.section__header
+        styles.section__header,
+        isLarge && styles["section__header--large"]
       )}
     >
       {children}
@@ -27,5 +29,7 @@ const PageSectionHeader: FunctionComponent<Props> = ({ children }) => {
   );
 };
 
-PageSectionHeader.defaultProps = {};
+PageSectionHeader.defaultProps = {
+  isLarge: false,
+};
 export default PageSectionHeader;

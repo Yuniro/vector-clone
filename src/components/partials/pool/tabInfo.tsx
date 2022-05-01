@@ -6,7 +6,7 @@ import { TabPanel, TabPanelProps } from "../tabs";
 import styles from "./styles.module.scss";
 
 interface Props extends TabPanelProps {
-  infos: ModelPoolInfo[];
+  infos?: ModelPoolInfo[];
 }
 
 const TabInfo: FunctionComponent<Props> = ({ infos, value, index }) => {
@@ -14,7 +14,7 @@ const TabInfo: FunctionComponent<Props> = ({ infos, value, index }) => {
     <Box className={clsx("p-4")}>
       <TabPanel value={value} index={index}>
         <Box className="gap-4 flex flex-col">
-          {infos.map((item, idx) => (
+          {infos?.map((item, idx) => (
             <Box className="flex items-center" key={`info_${idx}`}>
               <Typography className={clsx(styles.smallText)}>
                 {`${item.title}:`}
