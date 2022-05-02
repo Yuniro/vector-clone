@@ -4,10 +4,12 @@ import UserInfoCard from "../../components/partials/user/info-card";
 import PageSection, {
   SectionHeader,
 } from "../../components/partials/page/section";
+import dummyAirdropPool from "../../common/data/airdropPool";
 import PageWrapper from "../../components/partials/page/wrapper";
 import PoolsTableHeaderClaim from "../../components/partials/pool/headerClaim";
 import Totalclaimable from "../../components/claim/totalclaimable";
 import ActivePool from "../../components/partials/pool/activePool";
+import AirdropPool from "../../components/partials/pool/airdropPool";
 import activePool from "../../common/data/activePool";
 
 interface Props {}
@@ -35,6 +37,7 @@ const Claim: FunctionComponent<Props> = () => {
         </PageSection>
         <PageSection>
           <SectionHeader isLarge>Airdrops</SectionHeader>
+          <AirdropPool pool={dummyAirdropPool} />
         </PageSection>
       </>
     </PageWrapper>

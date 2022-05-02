@@ -322,3 +322,112 @@
 button.maxBtn {
   @extend %maxBtn;
 }
+
+.airdrop {
+  background: main.$var-clr-primary-darker-2;
+  padding: 30px;
+
+  &Step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    &Item {
+      width: calc(15% + 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      :global .progressbefore,
+      :global .progressafter {
+        height: 2px;
+        width: calc(50% - 15px);
+        background: main.$var-clr-primary;
+      }
+
+      :global .stepicon {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: main.$var-clr-primary;
+      }
+
+      &--unlocked {
+        :global .progressbefore,
+        :global .progressafter {
+          background-color: main.$var-clr-purple;
+        }
+
+        :global .stepicon {
+          background-color: main.$var-clr-purple;
+        }
+      }
+
+      &--first {
+        :global .progressbefore {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &Bucket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &Box {
+      width: 15%;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      :global .title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 150%;
+        color: #717299;
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      :global .box {
+        padding: 10px;
+        border-radius: 5px;
+        background: #313165;
+        opacity: 0.5;
+      }
+
+      :global .amount {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 125%;
+        color: #fff;
+        margin: 0 0 5px;
+        text-align: center;
+      }
+
+      :global .value {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 125%;
+        color: #c7c7e1;
+        text-align: center;
+      }
+
+      &--unlocked {
+        :global .title {
+          color: main.$var-clr-text-green;
+        }
+        :global .box {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

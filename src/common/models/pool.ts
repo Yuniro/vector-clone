@@ -19,6 +19,7 @@ export enum PoolType {
   TRADER_JOE = "traderJoe",
   VECTOR_LP = "vectorLp",
   STAKED = "staked",
+  AIRDROP = "airdrop",
 }
 
 export type ModelPoolToken = {
