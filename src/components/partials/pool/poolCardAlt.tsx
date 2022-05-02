@@ -80,7 +80,7 @@ const PoolCardAlt: FunctionComponent<Props> = ({ pool, isPrimary }) => {
             />
             <SwipeableViews
               index={tabIndex}
-              onChangeIndex={index => setTabIndex(index)}
+              onChangeIndex={(index) => setTabIndex(index)}
             >
               {tabs.map((tab, idx) => {
                 switch (tab) {

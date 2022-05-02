@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from "react";
+import { Box, Button } from "@mui/material";
 import UserInfoCard from "../../components/partials/user/info-card";
 import PageSection, {
   SectionHeader,
 } from "../../components/partials/page/section";
 import PageWrapper from "../../components/partials/page/wrapper";
-import PoolsTableHeader from "../../components/claim/header";
+import PoolsTableHeaderClaim from "../../components/partials/pool/headerClaim";
 import Totalclaimable from "../../components/claim/totalclaimable";
 import ActivePool from "../../components/partials/pool/activePool";
 import activePool from "../../common/data/activePool";
@@ -20,9 +21,17 @@ const Claim: FunctionComponent<Props> = () => {
         </PageSection>
         <PageSection>
           <SectionHeader isLarge>Your Active pools</SectionHeader>
-          <PoolsTableHeader />
+          <PoolsTableHeaderClaim />
           <ActivePool pool={activePool} />
           <Totalclaimable />
+          <Box className="flex w-full gap-4">
+            <Button className="w-full" variant="outlined">
+              Claim (<span>0</span>)
+            </Button>
+            <Button className="w-full" variant="contained">
+              Compound (<span>0</span>)
+            </Button>
+          </Box>
         </PageSection>
         <PageSection>
           <SectionHeader isLarge>Airdrops</SectionHeader>

@@ -3,12 +3,12 @@ import React, { FunctionComponent } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import InfoIcon from "@mui/icons-material/Info";
-import useResponsive from "../../common/hooks/useResponsive";
+import useResponsive from "../../../common/hooks/useResponsive";
 import styles from "./styles.module.scss";
 
 interface Props {}
 
-const PoolsTableHeader: FunctionComponent<Props> = () => {
+const PoolsTableHeaderClaim: FunctionComponent<Props> = () => {
   const isDesktop = useResponsive();
 
   return (
@@ -29,16 +29,7 @@ const PoolsTableHeader: FunctionComponent<Props> = () => {
           <InfoIcon className={clsx(styles.icon, styles.clrFade)} />
         </Box>
         <Box className={clsx(styles.card__content__stake)}>
-          <Typography className={styles.headerText}>Your deposites</Typography>
-        </Box>
-        <Box
-          className={clsx(
-            styles.card__content__claim,
-            "!flex-row items-center"
-          )}
-        >
-          <Typography className={styles.headerText}>TVL</Typography>
-          <InfoIcon className={clsx(styles.icon, styles.clrFade)} />
+          <Typography className={styles.headerText}>Your deposits</Typography>
         </Box>
         <Box className={styles.card__content__claim}>
           <Typography className={styles.headerText}>Claimable</Typography>
@@ -46,12 +37,9 @@ const PoolsTableHeader: FunctionComponent<Props> = () => {
         <Box
           className={clsx(styles.card__content__extra, "flex justify-end")}
         ></Box>
-        <IconButton className={styles.cardIcon}>
-          <SettingsIcon />
-        </IconButton>
       </Box>
     </Box>
   );
 };
 
-export default React.memo(PoolsTableHeader);
+export default React.memo(PoolsTableHeaderClaim);

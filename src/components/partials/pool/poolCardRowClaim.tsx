@@ -48,11 +48,6 @@ const PoolCardRowClaim: FunctionComponent<Props> = ({ pool }) => {
         </Box>
       </Box>
       <Box className={clsx(styles.card__content__change)}>
-        {pool.type === PoolType.PRIMARY && (
-          <Typography className={clsx(styles.headerText)}>
-            {pool.month}
-          </Typography>
-        )}
         <Box className="flex items-center">
           <Typography
             className={clsx(styles.headerText, styles["headerText--increment"])}
@@ -62,11 +57,6 @@ const PoolCardRowClaim: FunctionComponent<Props> = ({ pool }) => {
       {isDesktop && (
         <>
           <Box className={clsx(styles.card__content__stake)}>
-            {pool.type === PoolType.PRIMARY && (
-              <Typography className={clsx(styles.headerText)}>
-                Staked {`${pool.token.symbol}`}
-              </Typography>
-            )}
             <Box>
               <Typography
                 className={clsx(styles.card__content__deposit, styles.clrFade)}
@@ -76,21 +66,6 @@ const PoolCardRowClaim: FunctionComponent<Props> = ({ pool }) => {
             </Box>
           </Box>
           <Box className={clsx(styles.card__content__claim)}>
-            {pool.type === PoolType.PRIMARY && (
-              <Typography className={clsx(styles.headerText)}>TVL</Typography>
-            )}
-            <Box>
-              <Typography className={styles.card__content__deposit}>
-                {`${pool.tvlValue}`}
-              </Typography>
-            </Box>
-          </Box>
-          <Box className={clsx(styles.card__content__claim)}>
-            {pool.type === PoolType.PRIMARY && (
-              <Typography className={clsx(styles.headerText)}>
-                Claimable
-              </Typography>
-            )}
             <Box className="flex  items-center">
               <Typography
                 className={clsx(styles.card__content__deposit, styles.clrFade)}
