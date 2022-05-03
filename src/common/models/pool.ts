@@ -18,6 +18,8 @@ export enum PoolType {
   PLATYPUS_ALT = "platypusAlt",
   TRADER_JOE = "traderJoe",
   VECTOR_LP = "vectorLp",
+  STAKED = "staked",
+  AIRDROP = "airdrop",
 }
 
 export type ModelPoolToken = {
@@ -43,11 +45,19 @@ export interface ModelPool {
   unstake?: boolean;
   deposit?: boolean;
   withdraw?: boolean;
-  info: ModelPoolInfo[];
+  earnings?: ModelPoolEarning[];
+  info?: ModelPoolInfo[];
 }
 
 export interface ModelPoolAlt {
   background: string;
   primary: ModelPool;
   secondary: ModelPool;
+}
+
+export interface ModelPoolEarning {
+  token: ModelPoolToken;
+  earning: number;
+  price: number;
+  total: number;
 }

@@ -36,7 +36,9 @@ const PoolCardAlt: FunctionComponent<Props> = ({ pool, isPrimary }) => {
   pool.primary.info && tabs.push("info");
 
   const path = process.env.PUBLIC_URL;
-  const infos = [...pool.primary.info, ...pool.secondary.info];
+  const primaryInfo = pool.primary.info ? pool.primary.info : [];
+  const secondaryInfo = pool.secondary.info ? pool.secondary.info : [];
+  const infos = [...primaryInfo, ...secondaryInfo];
 
   return (
     <div className={clsx("mb-2.5")}>
@@ -78,7 +80,7 @@ const PoolCardAlt: FunctionComponent<Props> = ({ pool, isPrimary }) => {
             />
             <SwipeableViews
               index={tabIndex}
-              onChangeIndex={index => setTabIndex(index)}
+              onChangeIndex={(index) => setTabIndex(index)}
             >
               {tabs.map((tab, idx) => {
                 switch (tab) {
