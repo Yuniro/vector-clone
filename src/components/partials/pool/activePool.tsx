@@ -58,20 +58,26 @@ const ActivePool: FunctionComponent<Props> = ({ pool }) => {
           <PoolCardRowClaim pool={pool} />
         </AccordionSummary>
         <AccordionDetails className={"w-full p-0"}>
-          <TableContainer>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableContainer className={styles.activeTable}>
+            <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Earnings</TableCell>
-                  <TableCell>Token Price</TableCell>
-                  <TableCell>Total Value</TableCell>
+                  <TableCell className={styles.activeTableHeader}>
+                    Earnings
+                  </TableCell>
+                  <TableCell className={styles.activeTableHeader}>
+                    Token Price
+                  </TableCell>
+                  <TableCell className={styles.activeTableHeader}>
+                    Total Value
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {pool.earnings?.map((row, idx) => (
                   <TableRow key={`pe_${idx}`}>
-                    <TableCell component="th" scope="row">
-                      <Box>
+                    <TableCell scope="row" className={styles.activeTableCell}>
+                      <Box className="flex items-center">
                         <img
                           alt="token-img"
                           src={`${path}/assets/icons/${row.token.icon}.svg`}
@@ -79,8 +85,12 @@ const ActivePool: FunctionComponent<Props> = ({ pool }) => {
                         {`${row.earning.toFixed(2)} ${row.token.name}`}
                       </Box>
                     </TableCell>
-                    <TableCell>{`1 ${row.token.symbol} = $${row.price}`}</TableCell>
-                    <TableCell>{`$${row.total.toFixed(2)}`}</TableCell>
+                    <TableCell
+                      className={styles.activeTableCell}
+                    >{`1 ${row.token.symbol} = $${row.price}`}</TableCell>
+                    <TableCell
+                      className={styles.activeTableCell}
+                    >{`$${row.total.toFixed(2)}`}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

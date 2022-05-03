@@ -498,3 +498,33 @@ button.maxBtn {
     }
   }
 }
+
+.activeTable {
+  padding: 0 15px;
+  background-color: main.$var-clr-primary-darker-2 !important;
+
+  :global tbody tr:nth-child(2n + 1) {
+    background-color: #1a1a36;
+  }
+  :global tbody tr:nth-child(2n + 2) {
+    background-color: #24244a;
+  }
+
+  &Header {
+    padding: 12px;
+    font-size: 0.75rem;
+    border-bottom: 0;
+  }
+
+  &Cell {
+    padding: 12px;
+    font-size: 0.75rem;
+    line-height: 1;
+    border-bottom: 0;
+
+    img {
+      width: 16px;
+      margin-right: 5px;
+    }
+  }
+}
