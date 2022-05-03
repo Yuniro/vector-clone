@@ -63,10 +63,18 @@ const AirdropPool: FunctionComponent<Props> = ({ pool }) => {
                 </Typography>
               </Box>
 
-              <Box className={styles.airdropStep}>
+              <Box
+                className={clsx(
+                  styles.airdropStep,
+                  isDesktop && styles["airdropStep--desktop"]
+                )}
+              >
                 {dummyAirdropSteps.map((ads, idx) => {
                   let icon = "icon-lock.svg";
-                  const rowClasses = [styles.airdropStepItem];
+                  const rowClasses = [
+                    styles.airdropStepItem,
+                    isDesktop && styles["airdropStepItem--desktop"],
+                  ];
                   if (idx === 0) {
                     rowClasses.push(styles["airdropStepItem--first"]);
                   }
@@ -86,7 +94,7 @@ const AirdropPool: FunctionComponent<Props> = ({ pool }) => {
                       <Box className="progressbefore"></Box>
                       <Box className="stepicon">
                         <img
-                          alt="token-img"
+                          alt="airdrop-step-icon"
                           src={`${path}/assets/icons/${icon}`}
                         />
                       </Box>
@@ -95,9 +103,17 @@ const AirdropPool: FunctionComponent<Props> = ({ pool }) => {
                   );
                 })}
               </Box>
-              <Box className={styles.airdropBucket}>
+              <Box
+                className={clsx(
+                  styles.airdropBucket,
+                  isDesktop && styles["airdropBucket--desktop"]
+                )}
+              >
                 {dummyAirdropSteps.map((ads, idx) => {
-                  const rowClasses = [styles.airdropBucketBox];
+                  const rowClasses = [
+                    styles.airdropBucketBox,
+                    isDesktop && styles["airdropBucketBox--desktop"],
+                  ];
                   if (!ads.locked && ads.completed) {
                     rowClasses.push(styles["airdropBucketBox--unlocked"]);
                   }

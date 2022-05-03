@@ -326,13 +326,30 @@ button.maxBtn {
 .airdrop {
   background: main.$var-clr-primary-darker-2;
   padding: 30px;
+  display: flex;
+  flex-flow: row wrap;
+
+  &--desktop {
+    display: block;
+  }
 
   &Step {
+    width: 15%;
     display: flex;
-    align-items: center;
+    flex-flow: column;
+    align-items: stretch;
     justify-content: center;
     margin-top: 30px;
+
+    &--desktop {
+      width: 100%;
+      flex-flow: row;
+      align-items: center;
+    }
+
     &Item {
+      height: 100px;
+      flex-flow: column;
       width: calc(15% + 20px);
       display: flex;
       align-items: center;
@@ -340,9 +357,13 @@ button.maxBtn {
 
       :global .progressbefore,
       :global .progressafter {
-        height: 2px;
-        width: calc(50% - 15px);
+        height: 70px;
+        width: 2px;
         background: main.$var-clr-primary;
+      }
+
+      :global .progressbefore {
+        height: 0;
       }
 
       :global .stepicon {
@@ -371,27 +392,42 @@ button.maxBtn {
           background-color: transparent;
         }
       }
+
+      &--desktop {
+        height: auto;
+        flex-flow: row;
+
+        :global .progressbefore,
+        :global .progressafter {
+          height: 2px;
+          width: calc(50% - 15px);
+        }
+      }
     }
   }
 
   &Bucket {
     display: flex;
-    align-items: center;
+    width: 85%;
+    flex-flow: column;
+    align-items: stretch;
+    margin-top: 30px;
     justify-content: center;
 
     &Box {
-      width: 15%;
-      margin-left: 10px;
-      margin-right: 10px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      height: 100px;
 
       :global .title {
         font-style: normal;
         font-weight: 700;
-        font-size: 14px;
         line-height: 150%;
         color: #717299;
-        margin: 15px 0;
-        text-align: center;
+        margin: 5px 0;
+        text-align: left;
+        font-size: 12px;
       }
 
       :global .box {
@@ -399,6 +435,12 @@ button.maxBtn {
         border-radius: 5px;
         background: #313165;
         opacity: 0.5;
+
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+        gap: 10px;
       }
 
       :global .amount {
@@ -428,6 +470,31 @@ button.maxBtn {
           opacity: 1;
         }
       }
+
+      &--desktop {
+        width: 15%;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: auto;
+
+        :global .title {
+          font-size: 14px;
+          margin: 15px 0;
+          text-align: center;
+        }
+
+        :global .box {
+          margin: 0;
+          display: block;
+        }
+      }
+    }
+
+    &--desktop {
+      align-items: center;
+      width: 100%;
+      flex-flow: row;
+      margin-top: 0;
     }
   }
 }

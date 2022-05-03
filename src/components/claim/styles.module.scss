@@ -1,1 +1,23 @@
 @use "../../styles/index.scss" as main;
+
+.claimable {
+  &Details {
+    padding: 0;
+    background-color: main.$var-clr-primary;
+    :global .text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+    :global .dashed {
+      flex: 1 1 auto;
+      height: 0px;
+      border-bottom: 1px dashed rgb(113, 114, 153);
+    }
+    :global .convert-text {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 10px;
+    }
+  }
+}
