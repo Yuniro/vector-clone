@@ -1,0 +1,123 @@
+@use "../../styles/index.scss" as main;
+
+@keyframes bounceShadow {
+  0% {
+    -webkit-transform: scale(50%);
+    transform: scale(50%);
+  }
+  50% {
+    -webkit-transform: scale(110%);
+    transform: scale(110%);
+  }
+  to {
+    -webkit-transform: scale(50%);
+    transform: scale(50%);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateZ(0) rotate(0deg);
+    transform: translateZ(0) rotate(0deg);
+  }
+  50% {
+    -webkit-transform: translate3d(0, -50px, 0) rotate(180deg);
+    transform: translate3d(0, -50px, 0) rotate(180deg);
+  }
+  to {
+    -webkit-transform: translateZ(0) rotate(1turn);
+    transform: translateZ(0) rotate(1turn);
+  }
+}
+
+.noClaim {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  justify-content: center;
+  &--desktop {
+    flex-direction: row;
+  }
+
+  &Box {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-right: 0px;
+    margin-bottom: 1rem;
+    justify-content: center;
+    &--desktop {
+      margin-right: 70px;
+    }
+
+    :global img {
+      max-width: initial;
+    }
+  }
+
+  &Inbox {
+  }
+
+  &Shadow {
+    animation: bounceShadow 4s infinite;
+    z-index: 1;
+    position: absolute;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    top: calc(50% + 13px);
+    left: calc(50% - 45px);
+  }
+
+  &Smiley {
+    position: absolute;
+    animation: bounce 4s infinite linear;
+    z-index: 2;
+  }
+
+  &Title {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &Message {
+    color: main.$var-clr-text-secondary;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    font-size: 12px;
+    line-height: 1;
+
+    &Icon {
+      height: 1rem;
+      width: 1rem;
+    }
+    &Text {
+      font-size: 14px;
+      line-height: 1;
+    }
+  }
+}
+.nothingMessage {
+  display: flex;
+  max-width: 490px;
+  flex-direction: column;
+}
+
+.linkStake {
+  margin: 1rem auto;
+  font-size: 14px;
+  max-width: 200px;
+  font-family: DM Sans;
+  font-weight: 700;
+  line-height: 16px;
+  border-color: #313165;
+  color: main.$var-clr-white;
+
+  :global .MuiButton-startIcon {
+    color: main.$var-clr-purple;
+  }
+}
