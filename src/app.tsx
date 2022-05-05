@@ -2,8 +2,8 @@ import React from "react";
 import clsx from "clsx";
 import { Outlet } from "react-router-dom";
 import useResponsive from "./common/hooks/useResponsive";
-import Header from "./components/partials/header";
-import Footer from "./components/partials/footer";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 function App() {
   const isDesktop = useResponsive();

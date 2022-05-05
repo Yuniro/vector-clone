@@ -30,6 +30,16 @@ const theme = createTheme({
   typography: {
     fontFamily: ["DM Sans", "sans-serif"].join(","),
     fontSize: 14,
+    body1: {
+      fontSize: "0.875rem",
+      fontWeight: 500,
+      lineHeight: 1,
+    },
+    body2: {
+      fontSize: "0.75rem",
+      fontWeight: 400,
+      lineHeight: 1,
+    },
   },
   status: {},
 });

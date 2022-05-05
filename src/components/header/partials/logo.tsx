@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
-import useResponsive from "../../../../common/hooks/useResponsive";
-import Svg from "../../Svg";
+import useResponsive from "../../../common/hooks/useResponsive";
+import Svg from "../../partials/Svg";
 import styles from "../styles.module.scss";
 
 interface Props {}

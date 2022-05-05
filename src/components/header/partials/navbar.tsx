@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { Button, Link, ListItemButton, Menu, MenuItem } from "@mui/material";
 import { KeyboardArrowDownOutlined } from "@mui/icons-material";
-import ListItem from "../../list-item";
+import ListItem from "../../partials/list-item";
 import styles from "../styles.module.scss";
 import clsx from "clsx";
 

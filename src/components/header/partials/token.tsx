@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { FunctionComponent } from "react";
-import useResponsive from "../../../../common/hooks/useResponsive";
-import TokenPrice from "../../TokenPrice";
+import useResponsive from "../../../common/hooks/useResponsive";
+import TokenPrice from "../../partials/TokenPrice";
 interface Props {}
 
 const HeaderToken: FunctionComponent<Props> = props => {
