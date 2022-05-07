@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { StyledEngineProvider } from "@mui/material/styles";
-import ListItem from "../partials/list-item";
+import ListItem from "../list-item";
 import styles from "./styles.module.scss";
 
 interface Props {}

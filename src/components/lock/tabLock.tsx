@@ -21,8 +21,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import useResponsive from "../../common/hooks/useResponsive";
 import { ReactComponent as WalletIcon } from "../../assets/icons/icon-wallet-2.svg";
-import { TabPanel, TabPanelProps } from "../partials/tabs";
-import styles from "../partials/pool/styles.module.scss";
+import { TabPanel, TabPanelProps } from "../tabs";
+import styles from "../pool/styles.module.scss";
 import lockTabsStyles from "./styles.module.scss";
 
 export interface ILockRow {

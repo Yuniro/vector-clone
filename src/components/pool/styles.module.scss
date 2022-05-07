@@ -1,0 +1,530 @@
+@use "../../styles/index.scss" as main;
+
+%loc-marginRight {
+  margin-right: 1%;
+}
+
+.card {
+  :global .MuiAccordionSummary-content {
+    margin: 0;
+  }
+
+  &Icon:global.MuiIconButton-edgeEnd {
+    padding: 5px;
+    margin-right: 0;
+  }
+
+  &__accord {
+    background-color: main.$var-clr-primary;
+    background-image: none;
+  }
+
+  &__summary {
+    padding: 5px;
+
+    &--alt {
+      flex-direction: column;
+    }
+
+    &--bg-blue-light {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(0, 132, 207, 0.4) 0%,
+            rgba(0, 132, 207, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-purple {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(104, 105, 231, 0.4) 0%,
+            rgba(104, 105, 231, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-yellow {
+      background: radial-gradient(
+          13.94% 159.29% at 0% 50%,
+          rgba(240, 185, 11, 0.4) 0%,
+          rgba(240, 185, 11, 0) 100%
+        ),
+        transparent;
+    }
+
+    &--bg-red {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(242, 113, 106, 0.4) 0%,
+            rgba(242, 113, 106, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-blue {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(62, 115, 196, 0.4) 0%,
+            rgba(62, 115, 196, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &--bg-green {
+      background: radial-gradient(
+            13.94% 159.29% at 0% 50%,
+            rgba(38, 161, 123, 0.4) 0%,
+            rgba(38, 161, 123, 0) 100%
+          )
+          repeat scroll 0% 0%,
+        transparent none repeat scroll 0% 0%;
+    }
+
+    &Divide {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        270deg,
+        rgba(50, 50, 99, 0),
+        rgba(50, 50, 99, 0.75) 15%,
+        #323263 50%,
+        rgba(50, 50, 99, 0.75) 85%,
+        rgba(50, 50, 99, 0)
+      );
+      margin: 5px 0;
+      &--desktop {
+        margin: 15px 0;
+      }
+    }
+  }
+
+  &__content {
+    height: 60px;
+
+    &__info {
+      width: 80%;
+      @extend %loc-marginRight;
+
+      &Desktop {
+        width: 29%;
+      }
+
+      svg {
+        height: 40px;
+        margin-right: 15px;
+        margin-left: 5px;
+        width: 40px;
+      }
+
+      &Name {
+        gap: 2px;
+      }
+    }
+
+    &__change {
+      width: 20%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+
+      &Desktop {
+        width: 9%;
+      }
+    }
+
+    &__claim {
+      width: 14%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+    }
+
+    &__stake {
+      width: 19%;
+      @extend %loc-marginRight;
+      @extend %flexColAlignStart;
+    }
+    &__extra {
+      width: 10%;
+    }
+
+    &__name {
+      font-family: "Nunito", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1;
+
+      &Boosted {
+        padding: 2px 4px;
+        border-radius: 3px;
+        background-color: rgb(174, 243, 60);
+        color: rgb(0, 0, 0);
+        font-style: italic;
+        font-family: DM Sans;
+        font-size: 11px;
+        font-weight: 700;
+        margin-left: 10px;
+        text-transform: uppercase;
+      }
+    }
+
+    &__desc {
+      display: none;
+    }
+
+    &__deposit {
+      font-size: 14px;
+    }
+
+    &Icon {
+      height: 32px;
+      padding-right: 10px;
+      margin-left: 0;
+
+      &Desktop {
+        padding-right: 15px;
+      }
+
+      &--primary {
+        height: 40px;
+        margin-right: 15px;
+        margin-left: 5px;
+        width: 40px;
+        &Desktop {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.headerText {
+  padding: 5px 0;
+  white-space: nowrap;
+  color: main.$var-clr-text-secondary;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+
+  &Earning {
+    padding-bottom: 10px;
+  }
+
+  &--increment {
+    color: main.$var-clr-text-green;
+  }
+}
+
+.clrFade {
+  color: main.$var-clr-text-purple;
+}
+
+.icon {
+  margin-left: 5px;
+  width: 12px;
+  height: 12px;
+}
+
+.smallText {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.earning {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+  padding: 16px;
+  background-color: main.$var-clr-primary-darker-2;
+}
+
+.action {
+  &Section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &Desktop {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-end;
+      gap: 30px;
+    }
+
+    &--alt {
+      flex-direction: row;
+      border: 1px solid #313165;
+      align-items: flex-end;
+      border-radius: 5px;
+
+      &Margin {
+        margin: 10px;
+      }
+
+      &Img {
+        height: 15px;
+        margin-right: 7px;
+      }
+    }
+  }
+
+  &Btn {
+    margin-top: 20px;
+    justify-content: center;
+    &Desktop {
+      margin-top: 0;
+      justify-content: flex-start;
+    }
+
+    &--twoCheck {
+      margin-top: 10px;
+    }
+  }
+}
+.twoStep {
+  &Number {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    background-color: main.$var-clr-purple;
+    color: main.$var-clr-white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+  &Line {
+    display: inline-flex;
+    width: 45%;
+    border: 1px solid main.$var-clr-purple;
+    height: 0px;
+    background-color: main.$var-clr-purple;
+  }
+}
+
+.stakeInfo {
+  margin-bottom: 30px;
+}
+
+.poolsTableHeader {
+  p {
+    color: white;
+    padding: 10px 0;
+  }
+  .clrFade {
+    color: white;
+  }
+}
+
+button.maxBtn {
+  @extend %maxBtn;
+}
+
+.airdrop {
+  background: main.$var-clr-primary-darker-2;
+  padding: 30px;
+  display: flex;
+  flex-flow: row wrap;
+
+  &--desktop {
+    display: block;
+  }
+
+  &Step {
+    width: 15%;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: center;
+    margin-top: 30px;
+
+    &--desktop {
+      width: 100%;
+      flex-flow: row;
+      align-items: center;
+    }
+
+    &Item {
+      height: 100px;
+      flex-flow: column;
+      width: calc(15% + 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      :global .progressbefore,
+      :global .progressafter {
+        height: 70px;
+        width: 2px;
+        background: main.$var-clr-primary;
+      }
+
+      :global .progressbefore {
+        height: 0;
+      }
+
+      :global .stepicon {
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: main.$var-clr-primary;
+      }
+
+      &--unlocked {
+        :global .progressbefore,
+        :global .progressafter {
+          background-color: main.$var-clr-purple;
+        }
+
+        :global .stepicon {
+          background-color: main.$var-clr-purple;
+        }
+      }
+
+      &--first {
+        :global .progressbefore {
+          background-color: transparent;
+        }
+      }
+
+      &--desktop {
+        height: auto;
+        flex-flow: row;
+
+        :global .progressbefore,
+        :global .progressafter {
+          height: 2px;
+          width: calc(50% - 15px);
+        }
+      }
+    }
+  }
+
+  &Bucket {
+    display: flex;
+    width: 85%;
+    flex-flow: column;
+    align-items: stretch;
+    margin-top: 30px;
+    justify-content: center;
+
+    &Box {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      height: 100px;
+
+      :global .title {
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        color: #717299;
+        margin: 5px 0;
+        text-align: left;
+        font-size: 12px;
+      }
+
+      :global .box {
+        padding: 10px;
+        border-radius: 5px;
+        background: #313165;
+        opacity: 0.5;
+
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        grid-gap: 10px;
+        gap: 10px;
+      }
+
+      :global .amount {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 125%;
+        color: #fff;
+        margin: 0 0 5px;
+        text-align: center;
+      }
+
+      :global .value {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 125%;
+        color: #c7c7e1;
+        text-align: center;
+      }
+
+      &--unlocked {
+        :global .title {
+          color: main.$var-clr-text-green;
+        }
+        :global .box {
+          opacity: 1;
+        }
+      }
+
+      &--desktop {
+        width: 15%;
+        margin-left: 10px;
+        margin-right: 10px;
+        height: auto;
+
+        :global .title {
+          font-size: 14px;
+          margin: 15px 0;
+          text-align: center;
+        }
+
+        :global .box {
+          margin: 0;
+          display: block;
+        }
+      }
+    }
+
+    &--desktop {
+      align-items: center;
+      width: 100%;
+      flex-flow: row;
+      margin-top: 0;
+    }
+  }
+}
+
+.activeTable {
+  padding: 0 15px;
+  background-color: main.$var-clr-primary-darker-2 !important;
+
+  :global tbody tr:nth-child(2n + 1) {
+    background-color: #1a1a36;
+  }
+  :global tbody tr:nth-child(2n + 2) {
+    background-color: #24244a;
+  }
+
+  &Header {
+    padding: 12px;
+    font-size: 0.75rem;
+    border-bottom: 0;
+  }
+
+  &Cell {
+    padding: 12px;
+    font-size: 0.75rem;
+    line-height: 1;
+    border-bottom: 0;
+
+    img {
+      width: 16px;
+      margin-right: 5px;
+    }
+  }
+}

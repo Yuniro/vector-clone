@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { FunctionComponent } from "react";
 import useResponsive from "../../../common/hooks/useResponsive";
-import TokenPrice from "../../partials/TokenPrice";
+import TokenPrice from "../../token-price";
 interface Props {}
 
 const HeaderToken: FunctionComponent<Props> = props => {
@@ -24,7 +24,7 @@ const HeaderToken: FunctionComponent<Props> = props => {
     },
     {
       icon: "icon-fuel",
-      value: "117.448",
+      value: "242.5",
       link: "https://snowtrace.io/gastracker",
     },
   ];

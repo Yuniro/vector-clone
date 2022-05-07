@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from "react";
-import { Box, Typography } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
 import useResponsive from "../../common/hooks/useResponsive";
-import Tabs from "../partials/tabs";
-import TabInfo from "../partials/pool/tabInfo";
+import Tabs from "../tabs";
+import TabInfo from "../pool/tabInfo";
 import TabLock, { ILockRow } from "./tabLock";
 import TabUnlock, { IUnlockRow } from "./tabUnlock";
 
@@ -39,7 +38,7 @@ const LockInfo: FunctionComponent = () => {
       />
       <SwipeableViews
         index={tabIndex}
-        onChangeIndex={(index) => setTabIndex(index)}
+        onChangeIndex={index => setTabIndex(index)}
       >
         <TabLock value={tabIndex} index={0} balance={1} lockData={lockData} />
         <TabUnlock value={tabIndex} index={1} unlockData={unlockData} />

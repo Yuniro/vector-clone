@@ -15,7 +15,7 @@ function App() {
         <div
           className={clsx(
             isDesktop
-              ? "main-view w-full m-auto mt-20 mb-40 pt-8 max-w-6xl"
+              ? "main-view w-full m-auto mt-20 mb-40 pt-8 max-w-5xl"
               : "main-view mt-16 pt-1.5"
           )}
         >

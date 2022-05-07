@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { useSelector } from 'react-redux';
 import clsx from "clsx";
 import {
   Box,
@@ -27,10 +26,6 @@ function ConnectMenu() {
   const isDesktop = useResponsive();
 
   const pendingTransactions: any = [];
-  // const pendingTransactions = useSelector((state) => {
-  //   //@ts-ignore
-  //   return state.pendingTransactions;
-  // });
 
   let buttonText = "Connect Wallet";
   let clickFunc: any = connect;

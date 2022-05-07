@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import PageWrapper from "../../components/partials/page/wrapper";
+import PageWrapper from "../../components/page/wrapper";
 
 interface Props {}
 

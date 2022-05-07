@@ -1,21 +1,19 @@
 import React, { FunctionComponent } from "react";
 import { Box } from "@mui/material";
 import SwipeableViews from "react-swipeable-views";
-import UserInfoCard from "../../components/partials/user/info-card";
-import PageSection, {
-  SectionHeader,
-} from "../../components/partials/page/section";
-import PageWrapper from "../../components/partials/page/wrapper";
+import UserInfoCard from "../../components/user/info-card";
+import PageSection, { SectionHeader } from "../../components/page/section";
+import PageWrapper from "../../components/page/wrapper";
 import dummyMainPools from "../../common/data/mainPools";
 import dummyPlaytpusPrimaryPools from "../../common/data/playtpusPrimaryPool";
 import dummyPlaytpusAltPools from "../../common/data/playtpusAltPool";
 import dummyTraderJoePool from "../../common/data/traderJoePool";
 import dummyVectorLpPool from "../../common/data/vectorLpPool";
-import ProtocolStats from "../../components/partials/protocol-stats";
-import PoolCard from "../../components/partials/pool";
-import PoolCardAlt from "../../components/partials/pool/poolCardAlt";
-import PoolsTableHeader from "../../components/partials/pool/header";
-import Tabs, { TabPanel } from "../../components/partials/tabs";
+import ProtocolStats from "../../components/protocol-stats";
+import PoolCard from "../../components/pool";
+import PoolCardAlt from "../../components/pool/poolCardAlt";
+import PoolsTableHeader from "../../components/pool/header";
+import Tabs, { TabPanel } from "../../components/tabs";
 import styles from "./styles.module.scss";
 
 interface Props {}

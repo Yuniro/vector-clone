@@ -1,0 +1,41 @@
+@use "../../styles/index.scss" as main;
+
+.tabs {
+  :global {
+    .MuiTabs-indicator {
+      background-color: main.$var-clr-purple;
+    }
+    .MuiTabs-flexContainer {
+      gap: 30px;
+    }
+  }
+  &__topIndicator :global {
+    .MuiTabs-indicator {
+      top: 0;
+    }
+    .MuiTabs-flexContainer {
+      gap: 0;
+      backdrop-filter: blur(33px);
+      background-color: main.$var-clr-primary-dark;
+    }
+  }
+}
+.tab {
+  padding: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-size: 14px;
+  &:global.Mui-selected {
+    color: #fff;
+  }
+  &:global.MuiTab-fullWidth {
+    min-height: 30px;
+    font-size: 12px;
+    line-height: 16px;
+    &.Mui-selected {
+      border-top: 3px solid main.$var-clr-purple;
+      background-color: main.$var-clr-primary;
+    }
+  }
+}

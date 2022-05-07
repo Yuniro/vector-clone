@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 import { Box, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import useResponsive from "../../common/hooks/useResponsive";
-import styles from "../partials/pool/styles.module.scss";
+import styles from "../pool/styles.module.scss";
 import lockStyles from "./styles.module.scss";
 
 interface Props {

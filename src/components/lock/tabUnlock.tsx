@@ -12,8 +12,7 @@ import {
   TableRow,
 } from "@mui/material";
 import useResponsive from "../../common/hooks/useResponsive";
-import { TabPanel, TabPanelProps } from "../partials/tabs";
-import styles from "../partials/pool/styles.module.scss";
+import { TabPanel, TabPanelProps } from "../tabs";
 import lockTabsStyles from "./styles.module.scss";
 
 export interface IUnlockRow {

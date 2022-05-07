@@ -1,0 +1,48 @@
+@use "../../../styles/index.scss" as main;
+
+.card {
+  @extend %infoCard;
+
+  &--desktop {
+    @extend %infoCard--desktop;
+  }
+
+  &Info {
+    @extend %infoCardMain;
+  }
+}
+
+.info {
+  @extend %infoCardMain;
+
+  &__content {
+    @extend %infoCardContent;
+  }
+
+  &__header {
+    @extend %infoCardHeader;
+
+    &--desktop {
+      @extend %infoCardHeader--desktop;
+    }
+  }
+
+  &__value {
+    @extend %infoCardValue;
+
+    &--desktop {
+      @extend %infoCardValue--desktop;
+    }
+
+    &--reward {
+      @extend %infoCardValue--highlight;
+    }
+  }
+
+  &__currency {
+    @extend %infoCardCurrency;
+    &--desktop {
+      @extend %infoCardCurrency--desktop;
+    }
+  }
+}

@@ -2,20 +2,18 @@ import React, { FunctionComponent, useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import UserInfoCard from "../../components/partials/user/info-card";
-import PageSection, {
-  SectionHeader,
-} from "../../components/partials/page/section";
+import clsx from "clsx";
+import UserInfoCard from "../../components/user/info-card";
 import dummyAirdropPool from "../../common/data/airdropPool";
-import PageWrapper from "../../components/partials/page/wrapper";
-import PoolsTableHeaderClaim from "../../components/partials/pool/headerClaim";
-import Totalclaimable from "../../components/claim/totalclaimable";
-import ActivePool from "../../components/partials/pool/activePool";
-import AirdropPool from "../../components/partials/pool/airdropPool";
 import activePool from "../../common/data/activePool";
 import useResponsive from "../../common/hooks/useResponsive";
+import PageSection, { SectionHeader } from "../../components/page/section";
+import PageWrapper from "../../components/page/wrapper";
+import Totalclaimable from "../../components/claim/totalclaimable";
+import PoolsTableHeaderClaim from "../../components/pool/headerClaim";
+import ActivePool from "../../components/pool/activePool";
+import AirdropPool from "../../components/pool/airdropPool";
 import styles from "./styles.module.scss";
-import clsx from "clsx";
 
 interface Props {}
 
@@ -23,7 +21,7 @@ const Claim: FunctionComponent<Props> = () => {
   const isDesktop = useResponsive();
   const [isNoClaim, setIsNoCalim] = useState(false);
 
-  const path = process.env.PUBLIC_URL;
+  const { PUBLIC_URL } = process.env;
   return (
     <PageWrapper title="Claim Rewards">
       <>
@@ -47,17 +45,17 @@ const Claim: FunctionComponent<Props> = () => {
                 <img
                   alt="icon-no-smiley-shadow"
                   className={styles.noClaimShadow}
-                  src={`${path}/assets/icons/icon-no-smiley-shadow.svg`}
+                  src={`${PUBLIC_URL}/assets/icons/icon-no-smiley-shadow.svg`}
                 />
                 <img
                   alt="icon-no-smiley-box"
-                  src={`${path}/assets/icons/icon-no-smiley-box.svg`}
+                  src={`${PUBLIC_URL}/assets/icons/icon-no-smiley-box.svg`}
                 />
               </Box>
               <Box className={styles.noClaimSmiley}>
                 <img
                   alt="icon-no-smiley"
-                  src={`${path}/assets/icons/icon-no-smiley.svg`}
+                  src={`${PUBLIC_URL}/assets/icons/icon-no-smiley.svg`}
                 />
               </Box>
             </Box>

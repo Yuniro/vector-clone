@@ -2,7 +2,6 @@ import clsx from "clsx";
 import React, { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
 import useResponsive from "../../../common/hooks/useResponsive";
-import Svg from "../../partials/Svg";
 import styles from "../styles.module.scss";
 
 interface Props {}
@@ -17,11 +16,14 @@ const HeaderLogo: FunctionComponent<Props> = props => {
         className={clsx("flex items-center ", isDesktop ? "py-5" : styles.logo)}
       >
         <span className={clsx(isDesktop ? "w-10 h-10" : "w-6 h-6")}>
-          <img alt="logo" src={`${PUBLIC_URL}/images/logo.svg`} />
+          <img alt="logo" src={`${PUBLIC_URL}/assets/images/logo.svg`} />
         </span>
         {isDesktop && (
-          <span className={clsx(styles.logo__text__desktop)}>
-            <Svg type="logo-text" />
+          <span className={clsx(styles["logo__text--desktop"])}>
+            <img
+              alt="logo-text"
+              src={`${PUBLIC_URL}/assets/images/logo-text.svg`}
+            />
           </span>
         )}
       </div>

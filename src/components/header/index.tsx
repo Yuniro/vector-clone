@@ -16,12 +16,15 @@ const Header: FC = () => {
     <StyledEngineProvider injectFirst>
       <Container>
         <AppBar
-          className={clsx(styles.header, isDesktop && styles.header__desktop)}
+          className={clsx(
+            styles.header,
+            isDesktop && styles["header--desktop"]
+          )}
         >
           <Toolbar
             className={clsx(
               styles.header__toolbar,
-              isDesktop && styles.header__toolbar__desktop
+              isDesktop && styles["header__toolbar--desktop"]
             )}
           >
             <div className="flex flex-grow">

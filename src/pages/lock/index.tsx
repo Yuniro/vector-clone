@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { Paper } from "@mui/material";
 import clsx from "clsx";
-import PageWrapper from "../../components/partials/page/wrapper";
+import PageWrapper from "../../components/page/wrapper";
 import InfoHeader from "../../components/lock/lockInfo";
 import LockTabs from "../../components/lock/lockTabs";
 import styles from "./styles.module.scss";
