@@ -528,3 +528,10 @@ button.maxBtn {
     }
   }
 }
+
+.popover {
+  :global .MuiPaper-root {
+    max-width: 300px;
+    background-color: main.$var-clr-dark-gray;
+  }
+}

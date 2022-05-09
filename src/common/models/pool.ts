@@ -42,6 +42,7 @@ export interface ModelPool {
   claimable: string;
   convert?: ModelPoolConvert;
   stake?: ModelPoolStake;
+  source?: ModelPoolSource[];
   unstake?: boolean;
   deposit?: boolean;
   withdraw?: boolean;
@@ -60,4 +61,11 @@ export interface ModelPoolEarning {
   earning: number;
   price: number;
   total: number;
+}
+
+export interface ModelPoolSource {
+  token: ModelPoolToken;
+  apr: number;
+  apyWeekly: number;
+  apyDaily: number;
 }

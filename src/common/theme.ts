@@ -40,6 +40,12 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: 1,
     },
+    h4: {
+      fontSize: "1.125rem",
+      fontFamily: "Nunito",
+      fontWeight: 400,
+      lineHeight: 1.235,
+    },
   },
   status: {},
 });

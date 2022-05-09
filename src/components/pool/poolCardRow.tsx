@@ -1,6 +1,16 @@
 import clsx from "clsx";
 import React, { FunctionComponent } from "react";
-import { Box, Typography } from "@mui/material";
+import {
+  Box,
+  Popover,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import useResponsive from "../../common/hooks/useResponsive";
 import { ModelPool, PoolType } from "../../common/models";
@@ -12,6 +22,17 @@ interface Props {
 
 const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
   const isDesktop = useResponsive();
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+  const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const openIncPopover = Boolean(anchorEl);
   const path = process.env.PUBLIC_URL;
 
   return (
@@ -65,7 +86,11 @@ const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
             {pool.month}
           </Typography>
         )}
-        <Box className="flex items-center">
+        <Box
+          className="flex items-center"
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
+        >
           <Typography
             className={clsx(styles.headerText, styles["headerText--increment"])}
           >{`${pool.increment} %`}</Typography>
@@ -116,6 +141,68 @@ const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
           <Box className={clsx(styles.card__content__extra)}></Box>
         </>
       )}
+
+      <Popover
+        sx={{
+          pointerEvents: "none",
+        }}
+        open={openIncPopover}
+        anchorEl={anchorEl}
+        className={styles.popover}
+        onClose={handlePopoverClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        disableRestoreFocus
+      >
+        <TableContainer className={styles.activeTable}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell className={styles.activeTableHeader}>
+                  Source
+                </TableCell>
+                <TableCell className={styles.activeTableHeader}>APR</TableCell>
+                <TableCell className={styles.activeTableHeader}>
+                  APY <small>(if compounded weekly)</small>
+                </TableCell>
+                <TableCell className={styles.activeTableHeader}>
+                  APY <small>(if compounded daily)</small>
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {(pool.source || []).map((row, idx) => (
+                <TableRow key={`pe_${idx}`}>
+                  <TableCell scope="row" className={styles.activeTableCell}>
+                    <Box className="flex items-center">
+                      <img
+                        alt="token-img"
+                        src={`${path}/assets/icons/${row.token.icon}.svg`}
+                      />
+                      {row.token.name}
+                    </Box>
+                  </TableCell>
+                  <TableCell
+                    className={styles.activeTableCell}
+                  >{`${row.apr}%`}</TableCell>
+                  <TableCell
+                    className={styles.activeTableCell}
+                  >{`${row.apyWeekly}%`}</TableCell>
+                  <TableCell
+                    className={styles.activeTableCell}
+                  >{`${row.apyDaily}%`}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Popover>
     </Box>
   );
 };

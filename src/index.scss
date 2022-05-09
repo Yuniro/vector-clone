@@ -25,6 +25,10 @@ body {
   overflow: hidden;
 }
 
+:focus-visible {
+  outline: 0;
+}
+
 .app {
   height: 100vh;
   width: 100vw;
@@ -57,4 +61,8 @@ input[type="number"] {
   background-color: main.$var-clr-purple;
   color: main.$var-clr-white;
   min-width: max-content;
+}
+
+.MuiPaper-root {
+  color: main.$var-clr-white;
 }

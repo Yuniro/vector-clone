@@ -20,6 +20,38 @@ const dataset: ModelPool[] = [
         "Stake VTX on Vector to earn a portion of the platform's revenue, distributed as xPTP and zJOE tokens.",
     },
     unstake: true,
+    source: [
+      {
+        token: {
+          name: "VTX",
+          symbol: "VTX",
+          icon: "icon-vtx",
+        },
+        apr: 5.29,
+        apyWeekly: 5.43,
+        apyDaily: 5.43,
+      },
+      {
+        token: {
+          name: "xPTP",
+          symbol: "xPTP",
+          icon: "icon-xptp",
+        },
+        apr: 5.18,
+        apyWeekly: 5.31,
+        apyDaily: 5.31,
+      },
+      {
+        token: {
+          name: "zJOE",
+          symbol: "zJOE",
+          icon: "icon-zjoe",
+        },
+        apr: 4.52,
+        apyWeekly: 4.62,
+        apyDaily: 4.62,
+      },
+    ],
     info: [
       {
         title: "VTX Contract",
