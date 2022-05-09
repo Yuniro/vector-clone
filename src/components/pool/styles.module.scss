@@ -530,8 +530,17 @@ button.maxBtn {
 }
 
 .popover {
+  pointer-events: none;
   :global .MuiPaper-root {
     max-width: 300px;
+    background-color: main.$var-clr-dark-gray;
+  }
+}
+
+.popoverTable {
+  pointer-events: none;
+  :global .MuiPaper-root {
+    max-width: 350px;
     background-color: main.$var-clr-dark-gray;
   }
 }

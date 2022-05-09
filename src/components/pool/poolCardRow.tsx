@@ -95,6 +95,69 @@ const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
             className={clsx(styles.headerText, styles["headerText--increment"])}
           >{`${pool.increment} %`}</Typography>
           <InfoIcon className={clsx(styles.icon, styles.clrFade)} />
+
+          <Popover
+            sx={{
+              pointerEvents: "none",
+            }}
+            open={openIncPopover}
+            anchorEl={anchorEl}
+            className={styles.popoverTable}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            disableRestoreFocus
+          >
+            <TableContainer className={styles.activeTable}>
+              <Table aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell className={styles.activeTableHeader}>
+                      Source
+                    </TableCell>
+                    <TableCell className={styles.activeTableHeader}>
+                      APR
+                    </TableCell>
+                    <TableCell className={styles.activeTableHeader}>
+                      APY <small>(if compounded weekly)</small>
+                    </TableCell>
+                    <TableCell className={styles.activeTableHeader}>
+                      APY <small>(if compounded daily)</small>
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {(pool.source || []).map((row, idx) => (
+                    <TableRow key={`pe_${idx}`}>
+                      <TableCell scope="row" className={styles.activeTableCell}>
+                        <Box className="flex items-center">
+                          <img
+                            alt="token-img"
+                            src={`${path}/assets/icons/${row.token.icon}.svg`}
+                          />
+                          {row.token.name}
+                        </Box>
+                      </TableCell>
+                      <TableCell
+                        className={styles.activeTableCell}
+                      >{`${row.apr}%`}</TableCell>
+                      <TableCell
+                        className={styles.activeTableCell}
+                      >{`${row.apyWeekly}%`}</TableCell>
+                      <TableCell
+                        className={styles.activeTableCell}
+                      >{`${row.apyDaily}%`}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Popover>
         </Box>
       </Box>
       {isDesktop && (
@@ -141,68 +204,6 @@ const PoolCardRow: FunctionComponent<Props> = ({ pool }) => {
           <Box className={clsx(styles.card__content__extra)}></Box>
         </>
       )}
-
-      <Popover
-        sx={{
-          pointerEvents: "none",
-        }}
-        open={openIncPopover}
-        anchorEl={anchorEl}
-        className={styles.popover}
-        onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        disableRestoreFocus
-      >
-        <TableContainer className={styles.activeTable}>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell className={styles.activeTableHeader}>
-                  Source
-                </TableCell>
-                <TableCell className={styles.activeTableHeader}>APR</TableCell>
-                <TableCell className={styles.activeTableHeader}>
-                  APY <small>(if compounded weekly)</small>
-                </TableCell>
-                <TableCell className={styles.activeTableHeader}>
-                  APY <small>(if compounded daily)</small>
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {(pool.source || []).map((row, idx) => (
-                <TableRow key={`pe_${idx}`}>
-                  <TableCell scope="row" className={styles.activeTableCell}>
-                    <Box className="flex items-center">
-                      <img
-                        alt="token-img"
-                        src={`${path}/assets/icons/${row.token.icon}.svg`}
-                      />
-                      {row.token.name}
-                    </Box>
-                  </TableCell>
-                  <TableCell
-                    className={styles.activeTableCell}
-                  >{`${row.apr}%`}</TableCell>
-                  <TableCell
-                    className={styles.activeTableCell}
-                  >{`${row.apyWeekly}%`}</TableCell>
-                  <TableCell
-                    className={styles.activeTableCell}
-                  >{`${row.apyDaily}%`}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Popover>
     </Box>
   );
 };
